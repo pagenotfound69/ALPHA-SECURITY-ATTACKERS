@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pawned by 0x4LPH4</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: flicker 5s infinite;
+    }canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#mainImage {
+    position: relative;
+    display: block;
+    width: 70%;
+    height: auto;
+    max-width: 100%;
+    max-height: 90vh;
+    z-index: 2;
+    image-rendering: crisp-edges;
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 0.97; }
+    5%, 50%, 70% { opacity: 0.99; }
+    10%, 80% { opacity: 0.97; }
+    15% { opacity: 0.94; }
+    20% { opacity: 1; }
+}
+
+@keyframes glitch-shift {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-2px); }
+    20% { transform: translateX(2px); }
+    30% { transform: translateX(0); }
+    40% { transform: translateX(-1px); }
+    50% { transform: translateX(1px); }
+    60% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+</style>
+</head>
+<body><canvas id="glitchCanvas"></canvas>
+
+<div class="image-container">
+    <img id="mainImage" src="https://i.ibb.co/6R5RVLBV/20251207-094153.png" alt="Image">
+</div><script>
+const canvas = document.getElementById("glitchCanvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// White particles
+const particles = [];
+const maxParticles = 50;
+
+function createParticles() {
+    for (let i = 0; i < maxParticles; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 1.5, // slightly larger
+            color: '#fff',
+            speedX: (Math.random() - 0.5) * 3, // faster horizontal movement
+            speedY: (Math.random() - 0.5) * 3, // faster vertical movement
+            life: Math.random() * 100 + 50,
+            maxLife: Math.random() * 100 + 50,
+            trail: []
+        });
+    }
+}
+createParticles();
+
+let time = 0;
+
+function drawGlitchEffect() {
+    ctx.fillStyle = 'rgba(0,0,0,0.15)';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    time += 0.05;
+
+    // Draw particles
+    particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.life--;
+
+        p.trail.push({x: p.x, y: p.y});
+        if (p.trail.length > 10) p.trail.shift();
+
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+        if (p.life <= 0) {
+            p.x = Math.random() * canvas.width;
+            p.y = Math.random() * canvas.height;
+            p.life = p.maxLife;
+            p.trail = [];
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+    });
+
+    // Bulk pixel glitch
+    if (Math.random() > 0.3) {
+        const w = 100 + Math.random()*200;
+        const h = 50 + Math.random()*150;
+        const x = Math.random()*(canvas.width-w);
+        const y = Math.random()*(canvas.height-h);
+        const data = ctx.getImageData(x,y,w,h);
+        for (let i=0;i<data.data.length;i+=4){
+            const r = data.data[i];
+            data.data[i] = data.data[i+1]; 
+            data.data[i+1] = data.data[i+2]; 
+            data.data[i+2] = r; 
+        }
+        ctx.putImageData(data,x,y);
+    }
+
+    // Fine glitch lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    for (let i = 0; i < 30; i++) {
+        const y = Math.random() * canvas.height;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+
+    // Scanlines
+    ctx.fillStyle = 'rgba(255,255,255,0.02)';
+    for(let y=0;y<canvas.height;y+=4) ctx.fillRect(0,y,canvas.width,1);
+
+    // Vignette
+    const grad = ctx.createRadialGradient(canvas.width/2,canvas.height/2,0,canvas.width/2,canvas.height/2,canvas.width/1.5);
+    grad.addColorStop(0,'rgba(0,0,0,0)');
+    grad.addColorStop(1,'rgba(0,0,0,0.5)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // Flicker
+    if (Math.random() > 0.95){
+        ctx.fillStyle='rgba(255,255,255,0.08)';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+    }
+}
+
+function animate(){
+    drawGlitchEffect();
+    requestAnimationFrame(animate);
+}
+animate();
+
+// Image glitch
+const mainImg = document.getElementById('mainImage');
+mainImg.addEventListener('load', ()=>{
+    setInterval(()=>{
+        if(Math.random()>0.5){
+            mainImg.style.animation='glitch-shift 0.3s';
+            setTimeout(()=>mainImg.style.animation='',300);
+        }
+    }, 500);
+});
+</script></body>
+</html>
